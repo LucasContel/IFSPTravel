@@ -1,6 +1,4 @@
-﻿
-
-namespace IFSPStore.Domain.Base
+﻿namespace IFSPStore.Domain.Base
 {
     public abstract class BaseEntity<TID> : IBaseEntity
     {

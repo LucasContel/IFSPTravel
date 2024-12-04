@@ -8,9 +8,9 @@ namespace IFSPStore.Repository.Repository
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : BaseEntity<int>
     {
 
-        protected readonly MySqlContext _mySqlContext;
+        protected readonly SqlContext _mySqlContext;
 
-        public BaseRepository(MySqlContext mySqlContext)
+        public BaseRepository(SqlContext mySqlContext)
         {
             _mySqlContext = mySqlContext;
         }
