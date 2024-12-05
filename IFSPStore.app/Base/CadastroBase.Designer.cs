@@ -53,17 +53,19 @@
             tabControlCadastro.Depth = 0;
             tabControlCadastro.Dock = DockStyle.Fill;
             tabControlCadastro.ImageList = imageList1;
-            tabControlCadastro.Location = new Point(3, 48);
+            tabControlCadastro.Location = new Point(0, 64);
             tabControlCadastro.Margin = new Padding(3, 2, 3, 2);
             tabControlCadastro.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             tabControlCadastro.Multiline = true;
             tabControlCadastro.Name = "tabControlCadastro";
             tabControlCadastro.SelectedIndex = 0;
-            tabControlCadastro.Size = new Size(694, 288);
+            tabControlCadastro.Size = new Size(697, 272);
             tabControlCadastro.TabIndex = 0;
             // 
             // tabPageCadastro
             // 
+            tabPageCadastro.BackColor = Color.Transparent;
+            tabPageCadastro.BackgroundImageLayout = ImageLayout.None;
             tabPageCadastro.Controls.Add(btnCancelar);
             tabPageCadastro.Controls.Add(btnSalvar);
             tabPageCadastro.ImageKey = "form.png";
@@ -71,10 +73,9 @@
             tabPageCadastro.Margin = new Padding(3, 2, 3, 2);
             tabPageCadastro.Name = "tabPageCadastro";
             tabPageCadastro.Padding = new Padding(3, 2, 3, 2);
-            tabPageCadastro.Size = new Size(686, 253);
+            tabPageCadastro.Size = new Size(689, 237);
             tabPageCadastro.TabIndex = 0;
             tabPageCadastro.Text = "Cadastro";
-            tabPageCadastro.UseVisualStyleBackColor = true;
             // 
             // btnCancelar
             // 
@@ -131,7 +132,7 @@
             tabPageConsulta.Margin = new Padding(3, 2, 3, 2);
             tabPageConsulta.Name = "tabPageConsulta";
             tabPageConsulta.Padding = new Padding(3, 2, 3, 2);
-            tabPageConsulta.Size = new Size(686, 253);
+            tabPageConsulta.Size = new Size(689, 237);
             tabPageConsulta.TabIndex = 1;
             tabPageConsulta.Text = "Consulta";
             tabPageConsulta.UseVisualStyleBackColor = true;
@@ -139,14 +140,20 @@
             // 
             // dataGridViewConsulta
             // 
+            dataGridViewConsulta.AllowUserToAddRows = false;
+            dataGridViewConsulta.AllowUserToDeleteRows = false;
+            dataGridViewConsulta.AllowUserToOrderColumns = true;
             dataGridViewConsulta.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewConsulta.Dock = DockStyle.Top;
             dataGridViewConsulta.Location = new Point(3, 2);
             dataGridViewConsulta.Margin = new Padding(3, 2, 3, 2);
             dataGridViewConsulta.Name = "dataGridViewConsulta";
+            dataGridViewConsulta.ReadOnly = true;
             dataGridViewConsulta.RowHeadersWidth = 51;
-            dataGridViewConsulta.Size = new Size(680, 199);
+            dataGridViewConsulta.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewConsulta.Size = new Size(683, 199);
             dataGridViewConsulta.TabIndex = 3;
+            dataGridViewConsulta.CellDoubleClick += dataGridViewConsulta_CellDoubleClick;
             // 
             // btnExcluir
             // 
@@ -235,7 +242,7 @@
             DrawerTabControl = tabControlCadastro;
             Margin = new Padding(3, 2, 3, 2);
             Name = "CadastroBase";
-            Padding = new Padding(3, 48, 3, 2);
+            Padding = new Padding(0, 64, 3, 2);
             Text = "CadastroBase";
             tabControlCadastro.ResumeLayout(false);
             tabPageCadastro.ResumeLayout(false);
@@ -245,9 +252,6 @@
         }
 
         #endregion
-        private ReaLTaiizor.Controls.MaterialButton btnExcluir;
-        private ReaLTaiizor.Controls.MaterialButton btnEditar;
-        private ReaLTaiizor.Controls.MaterialButton btnNovo;
         private ImageList imageList1;
         protected ReaLTaiizor.Controls.MaterialTabControl tabControlCadastro;
         protected TabPage tabPageCadastro;
@@ -255,5 +259,8 @@
         protected DataGridView dataGridViewConsulta;
         protected ReaLTaiizor.Controls.MaterialButton btnCancelar;
         protected ReaLTaiizor.Controls.MaterialButton btnSalvar;
+        protected ReaLTaiizor.Controls.MaterialButton btnExcluir;
+        protected ReaLTaiizor.Controls.MaterialButton btnEditar;
+        protected ReaLTaiizor.Controls.MaterialButton btnNovo;
     }
 }

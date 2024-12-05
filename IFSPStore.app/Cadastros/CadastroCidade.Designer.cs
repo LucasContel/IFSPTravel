@@ -30,9 +30,9 @@
         {
             txtNome = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             cboEstado = new ReaLTaiizor.Controls.MaterialComboBox();
-            txtId = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             tabControlCadastro.SuspendLayout();
             tabPageCadastro.SuspendLayout();
+            tabPageConsulta.SuspendLayout();
             SuspendLayout();
             // 
             // tabControlCadastro
@@ -43,7 +43,6 @@
             // 
             // tabPageCadastro
             // 
-            tabPageCadastro.Controls.Add(txtId);
             tabPageCadastro.Controls.Add(cboEstado);
             tabPageCadastro.Controls.Add(txtNome);
             tabPageCadastro.Margin = new Padding(3);
@@ -53,12 +52,12 @@
             tabPageCadastro.Controls.SetChildIndex(btnCancelar, 0);
             tabPageCadastro.Controls.SetChildIndex(txtNome, 0);
             tabPageCadastro.Controls.SetChildIndex(cboEstado, 0);
-            tabPageCadastro.Controls.SetChildIndex(txtId, 0);
             // 
             // tabPageConsulta
             // 
             tabPageConsulta.Margin = new Padding(3);
             tabPageConsulta.Padding = new Padding(3);
+            tabPageConsulta.Size = new Size(726, 265);
             // 
             // btnCancelar
             // 
@@ -67,6 +66,18 @@
             // btnSalvar
             // 
             btnSalvar.Location = new Point(580, 215);
+            // 
+            // btnExcluir
+            // 
+            btnExcluir.Location = new Point(628, 222);
+            // 
+            // btnEditar
+            // 
+            btnEditar.Location = new Point(529, 222);
+            // 
+            // btnNovo
+            // 
+            btnNovo.Location = new Point(430, 222);
             // 
             // txtNome
             // 
@@ -80,7 +91,7 @@
             txtNome.HideSelection = true;
             txtNome.Hint = "Nome";
             txtNome.LeadingIcon = null;
-            txtNome.Location = new Point(146, 56);
+            txtNome.Location = new Point(6, 44);
             txtNome.Margin = new Padding(3, 2, 3, 2);
             txtNome.MaxLength = 32767;
             txtNome.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -93,7 +104,7 @@
             txtNome.SelectionLength = 0;
             txtNome.SelectionStart = 0;
             txtNome.ShortcutsEnabled = true;
-            txtNome.Size = new Size(363, 48);
+            txtNome.Size = new Size(368, 48);
             txtNome.TabIndex = 2;
             txtNome.TabStop = false;
             txtNome.TextAlign = HorizontalAlignment.Left;
@@ -116,46 +127,14 @@
             cboEstado.IntegralHeight = false;
             cboEstado.ItemHeight = 43;
             cboEstado.Items.AddRange(new object[] { "AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MG", "MS", "MT", "PA", "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RR", "RS", "SC", "SE", "SP", "TO" });
-            cboEstado.Location = new Point(531, 56);
+            cboEstado.Location = new Point(380, 43);
             cboEstado.Margin = new Padding(3, 2, 3, 2);
             cboEstado.MaxDropDownItems = 4;
             cboEstado.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cboEstado.Name = "cboEstado";
-            cboEstado.Size = new Size(133, 49);
+            cboEstado.Size = new Size(273, 49);
             cboEstado.StartIndex = 0;
             cboEstado.TabIndex = 3;
-            // 
-            // txtId
-            // 
-            txtId.AnimateReadOnly = false;
-            txtId.AutoCompleteMode = AutoCompleteMode.None;
-            txtId.AutoCompleteSource = AutoCompleteSource.None;
-            txtId.BackgroundImageLayout = ImageLayout.None;
-            txtId.CharacterCasing = CharacterCasing.Normal;
-            txtId.Depth = 0;
-            txtId.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtId.HideSelection = true;
-            txtId.Hint = "Id";
-            txtId.LeadingIcon = null;
-            txtId.Location = new Point(16, 56);
-            txtId.Margin = new Padding(3, 2, 3, 2);
-            txtId.MaxLength = 32767;
-            txtId.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            txtId.Name = "txtId";
-            txtId.PasswordChar = '\0';
-            txtId.PrefixSuffixText = null;
-            txtId.ReadOnly = false;
-            txtId.RightToLeft = RightToLeft.No;
-            txtId.SelectedText = "";
-            txtId.SelectionLength = 0;
-            txtId.SelectionStart = 0;
-            txtId.ShortcutsEnabled = true;
-            txtId.Size = new Size(109, 48);
-            txtId.TabIndex = 4;
-            txtId.TabStop = false;
-            txtId.TextAlign = HorizontalAlignment.Left;
-            txtId.TrailingIcon = null;
-            txtId.UseSystemPasswordChar = false;
             // 
             // CadastroCidade
             // 
@@ -165,9 +144,10 @@
             Margin = new Padding(3);
             Name = "CadastroCidade";
             Padding = new Padding(3, 36, 3, 2);
-            Text = "CadastroCidade";
+            Text = "Cadastro de Cidade";
             tabControlCadastro.ResumeLayout(false);
             tabPageCadastro.ResumeLayout(false);
+            tabPageConsulta.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -175,6 +155,5 @@
 
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtNome;
         private ReaLTaiizor.Controls.MaterialComboBox cboEstado;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtId;
     }
 }

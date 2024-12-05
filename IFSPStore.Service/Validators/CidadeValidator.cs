@@ -10,12 +10,12 @@ namespace IFSPStore.Service.Validators
             RuleFor(c => c.Nome)
                 .NotEmpty().WithMessage("Por favor informe o nome.")
                 .NotNull().WithMessage("Por favor informe o nome.")
-                .MaximumLength(50).WithMessage("Nome pode ser de no máximo 50 caracteres.");
+                .MaximumLength(100).WithMessage("Nome pode ser de no máximo 100 caracteres.");
 
             RuleFor(c => c.Estado)
                 .NotEmpty().WithMessage("Por favor informe o estado.")
                 .NotNull().WithMessage("Por favor informe o estado.")
-                .MaximumLength(50).WithMessage("Estado pode ser de no máximo 50 caracteres.");
+                .MaximumLength(4).WithMessage("Estado pode ser de no máximo 3 caracteres.");
         }
 
     }

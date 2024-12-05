@@ -1,27 +1,29 @@
 ﻿using IFSPStore.app.Base;
 using IFSPStore.Domain.Base;
 using IFSPStore.Domain.Entities;
+using IFSPStore.Repository.Mapping;
 using IFSPStore.Service.Validators;
 
 namespace IFSPStore.app.Cadastros
 {
-    public partial class CadastroCidade : CadastroBase
+    public partial class CadastroPassageiro : CadastroBase
     {
 
-        private readonly IBaseService<Cidade> _cidadeService;
-        private List<Cidade>? cidades;
+        private readonly IBaseService<Passageiro> _passageiroService;
+        private List<Passageiro>? passageiros;
 
-
-        public CadastroCidade(IBaseService<Cidade> cidadeService)
+        public CadastroPassageiro(IBaseService<Passageiro> passageiroService)
         {
-            _cidadeService = cidadeService;
+            _passageiroService = passageiroService;
             InitializeComponent();
         }
 
-        private void PreencheObjeto(Cidade cidade)
+        private void PreencheObjeto(Passageiro passageiro)
         {
-            cidade.Nome = txtNome.Text;
-            cidade.Estado = cboEstado.Text;
+            passageiro.Nome = txtNome.Text;
+            passageiro.Telefone = txtTelefone.Text;
+            passageiro.Cpf = txtCpf.Text;
+            passageiro.Email = txtEmail.Text;
         }
 
         protected override void Salvar()
@@ -32,16 +34,16 @@ namespace IFSPStore.app.Cadastros
                 {
                     if (int.TryParse(txtId, out var id))
                     {
-                        var cidade = _cidadeService.GetById<Cidade>(id);
-                        PreencheObjeto(cidade);
-                        cidade = _cidadeService.Update<Cidade, Cidade, CidadeValidator>(cidade);
+                        var passageiro = _passageiroService.GetById<Passageiro>(id);
+                        PreencheObjeto(passageiro);
+                        passageiro = _passageiroService.Update<Passageiro, Passageiro, PassageiroValidator>(passageiro);
                     }
                 }
                 else
                 {
-                    var cidade = new Cidade();
-                    PreencheObjeto(cidade);
-                    _cidadeService.Add<Cidade, Cidade, CidadeValidator>(cidade);
+                    var passageiro = new Passageiro();
+                    PreencheObjeto(passageiro);
+                    _passageiroService.Add<Passageiro, Passageiro, PassageiroValidator>(passageiro);
                 }
                 tabControlCadastro.SelectedIndex = 1;
             }
@@ -51,11 +53,12 @@ namespace IFSPStore.app.Cadastros
             }
         }
 
+
         protected override void Deletar(int id)
         {
             try
             {
-                _cidadeService.Delete(id);
+                _passageiroService.Delete(id);
             }
             catch (Exception ex)
             {
@@ -65,8 +68,8 @@ namespace IFSPStore.app.Cadastros
 
         protected override void CarregaGrid()
         {
-            cidades = _cidadeService.Get<Cidade>().ToList();
-            dataGridViewConsulta.DataSource = cidades;
+            passageiros = _passageiroService.Get<Passageiro>().ToList();
+            dataGridViewConsulta.DataSource = passageiros;
             dataGridViewConsulta.Columns["Nome"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
@@ -74,8 +77,10 @@ namespace IFSPStore.app.Cadastros
         {
             txtId = linha?.Cells["Id"].Value.ToString();
             txtNome.Text = linha?.Cells["Nome"].Value.ToString();
-            cboEstado.Text = linha?.Cells["Estado"].Value.ToString();
+            txtTelefone.Text = linha?.Cells["Telefone"].Value.ToString();
+            txtCpf.Text = linha?.Cells["Cpf"].Value.ToString();
+            txtEmail.Text = linha?.Cells["Email"].Value.ToString();
         }
+
     }
 }
-

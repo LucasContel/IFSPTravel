@@ -39,8 +39,6 @@ namespace IFSPStore.Repository.Mapping
             builder.Property(prop => prop.NumeroAssento)
                 .IsRequired();
 
-            builder.Property(prop => prop.Reservado);
-
             builder.HasOne(prop => prop.Onibus)
                 .WithMany(prop => prop.Assentos)
                 .OnDelete(DeleteBehavior.Cascade);

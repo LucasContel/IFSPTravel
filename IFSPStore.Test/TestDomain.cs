@@ -41,11 +41,11 @@ namespace IFSPStore.Test
 
             Onibus onibus = new Onibus(1, "Placa", "Modelo", true, assentos);
             
-            Assento assento = new Assento(1, 1, false, onibus);
+            Assento assento = new Assento(1, 1, onibus);
 
             assentos.Add(assento);
 
-            assento = new Assento(2, 2, true, onibus);
+            assento = new Assento(2, 2, onibus);
 
             assentos.Add(assento);
 
@@ -67,11 +67,11 @@ namespace IFSPStore.Test
 
             Onibus onibus = new Onibus(1, "Placa", "Modelo", true, assentos);
 
-            Assento assento = new Assento(1, 1, false, onibus);
+            Assento assento = new Assento(1, 1, onibus);
 
             assentos.Add(assento);
 
-            assento = new Assento(2, 2, true, onibus);
+            assento = new Assento(2, 2, onibus);
 
             assentos.Add(assento);
 
@@ -98,7 +98,7 @@ namespace IFSPStore.Test
 
             Onibus onibus = new Onibus(1, "Placa", "Modelo", true, assentos);
 
-            Assento assento = new Assento(1, 1, false, onibus);
+            Assento assento = new Assento(1, 1, onibus);
 
             assentos.Add(assento);
 

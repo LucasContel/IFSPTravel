@@ -16,6 +16,7 @@ namespace IFSPStore.app.Base
     {
         #region Declarações
         protected bool isAlteracao = false;
+        protected string txtId = "";
         #endregion
 
         #region Construtor
@@ -69,6 +70,11 @@ namespace IFSPStore.app.Base
         private void tabPageConsulta_Enter(object sender, EventArgs e)
         {
             CarregaGrid();
+        }
+
+        private void dataGridViewConsulta_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Editar();
         }
 
         #endregion
@@ -134,11 +140,6 @@ namespace IFSPStore.app.Base
         }
         #endregion
 
-
-
-
-
-
-
+        
     }
 }

@@ -32,16 +32,14 @@ namespace IFSPStore.Domain.Entities
             
         }
 
-        public Assento(int id, int numeroAssento, bool reservado, Onibus onibus)
+        public Assento(int id, int numeroAssento, Onibus onibus)
         {
             Id = id;
             NumeroAssento = numeroAssento;
-            Reservado = reservado;
             Onibus = onibus;
         }
 
         public int NumeroAssento { get; set; }
-        public bool Reservado { get; set; }
         [JsonIgnore]
         public Onibus? Onibus { get; set; }
 

@@ -11,6 +11,7 @@ using IFSPStore.Repository.Repository;
 using IFSPStore.Service.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System.Configuration.Internal;
 
 namespace IFSPStore.app.Infra
 {
@@ -26,7 +27,7 @@ namespace IFSPStore.app.Infra
             #region Banco_de_dados
             var strCon = File.ReadAllText("Config/ConfigBanco.txt");
 
-            Services.AddDbContext<MySqlContext>(options =>
+            Services.AddDbContext<SqlContext>(options =>
             {
                 options.LogTo(Console.WriteLine)
                 .EnableSensitiveDataLogging();
@@ -40,24 +41,29 @@ namespace IFSPStore.app.Infra
             #endregion
 
             #region Repositórios
-            Services.AddScoped<IBaseRepository<Usuario>, BaseRepository<Usuario>>();
+            Services.AddScoped<IBaseRepository<Passageiro>, BaseRepository<Passageiro>>();
             Services.AddScoped<IBaseRepository<Cidade>, BaseRepository<Cidade>>();
-            Services.AddScoped<IBaseRepository<Cliente>, BaseRepository<Cliente>>();
-            Services.AddScoped<IBaseRepository<Grupo>, BaseRepository<Grupo>>();
-            Services.AddScoped<IBaseRepository<Produto>, BaseRepository<Produto>>();
-            Services.AddScoped<IBaseRepository<Venda>, BaseRepository<Venda>>();
+            Services.AddScoped<IBaseRepository<Onibus>, BaseRepository<Onibus>>();
+            Services.AddScoped<IBaseRepository<Assento>, BaseRepository<Assento>>();
+            Services.AddScoped<IBaseRepository<Viagem>, BaseRepository<Viagem>>();
+            Services.AddScoped<IBaseRepository<Reserva>, BaseRepository<Reserva>>();
             #endregion
 
             #region Serviços
-            Services.AddScoped<IBaseService<Usuario>, BaseService<Usuario>>();
+            Services.AddScoped<IBaseService<Passageiro>, BaseService<Passageiro>>();
             Services.AddScoped<IBaseService<Cidade>, BaseService<Cidade>>();
-            Services.AddScoped<IBaseService<Cliente>, BaseService<Cliente>>();
-            Services.AddScoped<IBaseService<Grupo>, BaseService<Grupo>>();
-            Services.AddScoped<IBaseService<Produto>, BaseService<Produto>>();
-            Services.AddScoped<IBaseService<Venda>, BaseService<Venda>>();
+            Services.AddScoped<IBaseService<Onibus>, BaseService<Onibus>>();
+            Services.AddScoped<IBaseService<Assento>, BaseService<Assento>>();
+            Services.AddScoped<IBaseService<Viagem>, BaseService<Viagem>>();
+            Services.AddScoped<IBaseService<Reserva>, BaseService<Reserva>>();
             #endregion
 
             #region Formulários
+            Services.AddTransient<CadastroCidade, CadastroCidade>();
+            Services.AddTransient<CadastroPassageiro, CadastroPassageiro>();
+            Services.AddTransient<CadastroOnibus, CadastroOnibus>();
+            Services.AddTransient<CadastroViagem, CadastroViagem>();
+            /*
             Services.AddTransient<CadastroCidade, CadastroCidade>();
             Services.AddTransient<CadastroCliente, CadastroCliente>();
             Services.AddTransient<CadastroGrupo, CadastroGrupo>();
@@ -65,28 +71,41 @@ namespace IFSPStore.app.Infra
             Services.AddTransient<CadastroUsuario, CadastroUsuario>();
             Services.AddTransient<CadastroVenda, CadastroVenda>();
             Services.AddTransient<Login, Login>();
+            */
 
             #endregion
 
             #region Mapping
             Services.AddSingleton(new MapperConfiguration(config =>
             {
-
+                
                 config.CreateMap<Cidade, CidadeModel>()
                 .ForMember(c => c.NomeEstado, c => c.MapFrom(x => $"{x.Nome}/{x.Estado}"));
 
-                config.CreateMap<Cliente, ClienteModel>()
-                .ForMember(c => c.Cidade, c => c.MapFrom(x => $"{x.Cidade!.Nome}/{x.Cidade!.Estado}"))
-                .ForMember(c => c.IdCidade, c => c.MapFrom(x => x.Cidade!.Id));
+                config.CreateMap<Onibus, OnibusModel>()
+                .ForMember(c => c.NumeroAssentos, c => c.MapFrom(x => x.Assentos!.Count));
 
-                config.CreateMap<Grupo, GrupoModel>();
-
-                config.CreateMap<Produto, ProdutoModel>()
-                .ForMember(c => c.Grupo, c => c.MapFrom(x => x.Grupo!.Nome))
-                .ForMember(c => c.IdGrupo, c => c.MapFrom(x => x.Grupo!.Id));
-
-                config.CreateMap<Usuario, UsuarioModel>();
+                config.CreateMap<Assento, AssentoModel>();
                 
+                config.CreateMap<Passageiro, PassageiroModel>();
+
+                config.CreateMap<Viagem, ViagemModel>()
+                .ForMember(c => c.ModeloOnibus, c => c.MapFrom(x => x.Onibus!.Modelo))
+                .ForMember(c => c.IdOnibus, c => c.MapFrom(x => x.Onibus!.Id))
+                .ForMember(c => c.CidadeOrigem, c => c.MapFrom(x => $"{x.Origem!.Nome}/{x.Origem!.Estado}"))
+                .ForMember(c => c.IdOrigem, c => c.MapFrom(x => x.Origem!.Id))
+                .ForMember(c => c.CidadeDestino, c => c.MapFrom(x => $"{x.Destino!.Nome}/{x.Destino!.Estado}"))
+                .ForMember(c => c.IdDestino, c => c.MapFrom(x => x.Destino!.Id));
+
+
+                config.CreateMap<Reserva, ReservaModel>()
+                .ForMember(c => c.ViagemDestino, c => c.MapFrom(x => x.Viagem!.Destino))
+                .ForMember(c => c.ViagemOrigem, c => c.MapFrom(x => x.Viagem!.Origem))
+                .ForMember(c => c.IdViagem, c => c.MapFrom(x => x.Viagem!.Id))
+                .ForMember(c => c.NomePassageiro, c => c.MapFrom(x => x.Passageiro!.Nome))
+                .ForMember(c => c.IdPassageiro, c => c.MapFrom(x => x.Passageiro!.Id))
+                .ForMember(c => c.NumeroAssento, c => c.MapFrom(x => x.Assento!.NumeroAssento))
+                .ForMember(c => c.IdAssento, c => c.MapFrom(x => x.Assento!.Id));                
 
             }).CreateMapper());
             #endregion
