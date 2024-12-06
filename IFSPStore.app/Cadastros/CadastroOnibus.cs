@@ -63,23 +63,49 @@ namespace IFSPStore.app.Cadastros
                     onibus.Assentos.Add(assento);
                 }
 
+                int prioridade = (int)Math.Floor(int.Parse(cboAssentos.Text) * .1);
+                for (int i = 0; i < onibus.Assentos.Count; i++)
+                {
+                    if (i >= int.Parse(cboAssentos.Text) - prioridade)
+                    {
+                        onibus.Assentos[i].Prioritario = true;
+                    }
+                    else
+                    {
+                        onibus.Assentos[i].Prioritario = false;
+                    }
 
-                
+                }
 
             }
             else
             {
+                int prioridade = (int)Math.Floor(int.Parse(cboAssentos.Text) * .1);
+
                 for (int i = 0; i < int.Parse(cboAssentos.Text); i++)
                 {
+                    bool prioritario;
+                    if (i >= int.Parse(cboAssentos.Text) - prioridade)
+                    {
+                        prioritario = true;
+                    }
+                    else
+                    {
+                        prioritario = false;
+                    }
+
                     var assento = new Assento
                     {
                         Onibus = onibus,
+                        Prioritario = prioritario,
                         NumeroAssento = (i + 1)
                     };
 
                     onibus.Assentos.Add(assento);
                 }
             }
+
+            
         }
 
         protected override void Salvar()

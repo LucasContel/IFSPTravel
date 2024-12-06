@@ -139,17 +139,30 @@ namespace IFSPStore.Test
                     Assentos = new List<Assento>()
                 };
 
-                for(int i = 0; i < 10; i++)
+                int totalAssentos = 10;
+                int prioridadeAssentos = (int)Math.Floor(totalAssentos * .1);
+
+                for (int i = 0; i < totalAssentos; i++)
                 {
+                    bool _prioridade;
+                    if (i >= totalAssentos - prioridadeAssentos)
+                    {
+                        _prioridade = true;
+                    }
+                    else
+                    {
+                        _prioridade = false;
+                    }
                     var assento = new Assento
                     {
                         NumeroAssento = i + 1,
+                        Prioritario = _prioridade,
                         Onibus = onibus
                     };
 
                     onibus.Assentos.Add(assento);
                 }
-                
+
                 context.Onibus.Add(onibus);
 
                 onibus = new Onibus
@@ -160,11 +173,24 @@ namespace IFSPStore.Test
                     Assentos = new List<Assento>()
                 };
 
-                for (int i = 0; i < 10; i++)
+                totalAssentos = 20;
+                prioridadeAssentos = (int)Math.Floor(totalAssentos*.1);
+
+                for (int i = 0; i < totalAssentos; i++)
                 {
+                    bool _prioridade;
+                    if (i >= totalAssentos - prioridadeAssentos)
+                    {
+                        _prioridade = true;
+                    }
+                    else
+                    {
+                        _prioridade = false;
+                    }
                     var assento = new Assento
                     {
                         NumeroAssento = i + 1,
+                        Prioritario = _prioridade,
                         Onibus = onibus
                     };
 

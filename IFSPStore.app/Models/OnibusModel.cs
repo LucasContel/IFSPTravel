@@ -21,6 +21,7 @@ namespace IFSPStore.app.Models
     {
         public int Id { get; set; }
         public int NumeroAssento { get; set; }
+        public bool Prioritario { get; set; }
 
     }
 }

@@ -161,6 +161,7 @@ namespace IFSPStore.Test
             var assento = new Assento
             {
                 NumeroAssento = 4,
+                Prioritario = false,
                 Onibus = onibus
             };
 
