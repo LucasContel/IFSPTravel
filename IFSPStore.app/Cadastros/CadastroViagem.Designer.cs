@@ -28,11 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtSaida = new ReaLTaiizor.Controls.MaterialMaskedTextBox();
-            txtChegada = new ReaLTaiizor.Controls.MaterialMaskedTextBox();
             cboOnibus = new ReaLTaiizor.Controls.MaterialComboBox();
             cboDestino = new ReaLTaiizor.Controls.MaterialComboBox();
             cboOrigem = new ReaLTaiizor.Controls.MaterialComboBox();
+            dataSaida = new DateTimePicker();
+            lblSaida = new ReaLTaiizor.Controls.BigLabel();
+            dataChegada = new DateTimePicker();
+            lblChegada = new ReaLTaiizor.Controls.BigLabel();
+            txtHoraSaida = new ReaLTaiizor.Controls.MaterialMaskedTextBox();
+            txtHoraChegada = new ReaLTaiizor.Controls.MaterialMaskedTextBox();
             tabControlCadastro.SuspendLayout();
             tabPageCadastro.SuspendLayout();
             tabPageConsulta.SuspendLayout();
@@ -40,23 +44,35 @@
             // 
             // tabControlCadastro
             // 
-            tabControlCadastro.Size = new Size(797, 330);
+            tabControlCadastro.Size = new Size(840, 319);
             // 
             // tabPageCadastro
             // 
+            tabPageCadastro.Controls.Add(txtHoraChegada);
+            tabPageCadastro.Controls.Add(txtHoraSaida);
+            tabPageCadastro.Controls.Add(dataChegada);
+            tabPageCadastro.Controls.Add(dataSaida);
+            tabPageCadastro.Controls.Add(lblSaida);
             tabPageCadastro.Controls.Add(cboOrigem);
             tabPageCadastro.Controls.Add(cboDestino);
             tabPageCadastro.Controls.Add(cboOnibus);
-            tabPageCadastro.Controls.Add(txtChegada);
-            tabPageCadastro.Controls.Add(txtSaida);
-            tabPageCadastro.Size = new Size(789, 295);
+            tabPageCadastro.Controls.Add(lblChegada);
+            tabPageCadastro.Size = new Size(832, 284);
+            tabPageCadastro.Controls.SetChildIndex(lblChegada, 0);
             tabPageCadastro.Controls.SetChildIndex(btnSalvar, 0);
             tabPageCadastro.Controls.SetChildIndex(btnCancelar, 0);
-            tabPageCadastro.Controls.SetChildIndex(txtSaida, 0);
-            tabPageCadastro.Controls.SetChildIndex(txtChegada, 0);
             tabPageCadastro.Controls.SetChildIndex(cboOnibus, 0);
             tabPageCadastro.Controls.SetChildIndex(cboDestino, 0);
             tabPageCadastro.Controls.SetChildIndex(cboOrigem, 0);
+            tabPageCadastro.Controls.SetChildIndex(lblSaida, 0);
+            tabPageCadastro.Controls.SetChildIndex(dataSaida, 0);
+            tabPageCadastro.Controls.SetChildIndex(dataChegada, 0);
+            tabPageCadastro.Controls.SetChildIndex(txtHoraSaida, 0);
+            tabPageCadastro.Controls.SetChildIndex(txtHoraChegada, 0);
+            // 
+            // tabPageConsulta
+            // 
+            tabPageConsulta.Size = new Size(832, 284);
             // 
             // btnCancelar
             // 
@@ -68,101 +84,6 @@
             // 
             // btnExcluir
             // 
-            btnExcluir.Location = new Point(661, 246);
-            // 
-            // btnEditar
-            // 
-            btnEditar.Location = new Point(562, 246);
-            // 
-            // btnNovo
-            // 
-            btnNovo.Location = new Point(463, 246);
-            // 
-            // txtSaida
-            // 
-            txtSaida.AllowPromptAsInput = true;
-            txtSaida.AnimateReadOnly = false;
-            txtSaida.AsciiOnly = false;
-            txtSaida.BackgroundImageLayout = ImageLayout.None;
-            txtSaida.BeepOnError = false;
-            txtSaida.CutCopyMaskFormat = MaskFormat.IncludeLiterals;
-            txtSaida.Depth = 0;
-            txtSaida.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtSaida.HidePromptOnLeave = false;
-            txtSaida.HideSelection = true;
-            txtSaida.Hint = "Data de Saída";
-            txtSaida.InsertKeyMode = InsertKeyMode.Default;
-            txtSaida.LeadingIcon = null;
-            txtSaida.Location = new Point(22, 33);
-            txtSaida.Mask = "99/99/9999";
-            txtSaida.MaxLength = 32767;
-            txtSaida.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            txtSaida.Name = "txtSaida";
-            txtSaida.PasswordChar = '\0';
-            txtSaida.PrefixSuffixText = null;
-            txtSaida.PromptChar = '_';
-            txtSaida.ReadOnly = false;
-            txtSaida.RejectInputOnFirstFailure = false;
-            txtSaida.ResetOnPrompt = true;
-            txtSaida.ResetOnSpace = true;
-            txtSaida.RightToLeft = RightToLeft.No;
-            txtSaida.SelectedText = "";
-            txtSaida.SelectionLength = 0;
-            txtSaida.SelectionStart = 0;
-            txtSaida.ShortcutsEnabled = true;
-            txtSaida.Size = new Size(369, 48);
-            txtSaida.SkipLiterals = true;
-            txtSaida.TabIndex = 1;
-            txtSaida.TabStop = false;
-            txtSaida.Text = "  /  /";
-            txtSaida.TextAlign = HorizontalAlignment.Left;
-            txtSaida.TextMaskFormat = MaskFormat.IncludeLiterals;
-            txtSaida.TrailingIcon = null;
-            txtSaida.UseSystemPasswordChar = false;
-            txtSaida.ValidatingType = null;
-            // 
-            // txtChegada
-            // 
-            txtChegada.AllowPromptAsInput = true;
-            txtChegada.AnimateReadOnly = false;
-            txtChegada.AsciiOnly = false;
-            txtChegada.BackgroundImageLayout = ImageLayout.None;
-            txtChegada.BeepOnError = false;
-            txtChegada.CutCopyMaskFormat = MaskFormat.IncludeLiterals;
-            txtChegada.Depth = 0;
-            txtChegada.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtChegada.HidePromptOnLeave = false;
-            txtChegada.HideSelection = true;
-            txtChegada.Hint = "Data de Chegada";
-            txtChegada.InsertKeyMode = InsertKeyMode.Default;
-            txtChegada.LeadingIcon = null;
-            txtChegada.Location = new Point(397, 33);
-            txtChegada.Mask = "99/99/9999";
-            txtChegada.MaxLength = 32767;
-            txtChegada.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            txtChegada.Name = "txtChegada";
-            txtChegada.PasswordChar = '\0';
-            txtChegada.PrefixSuffixText = null;
-            txtChegada.PromptChar = '_';
-            txtChegada.ReadOnly = false;
-            txtChegada.RejectInputOnFirstFailure = false;
-            txtChegada.ResetOnPrompt = true;
-            txtChegada.ResetOnSpace = true;
-            txtChegada.RightToLeft = RightToLeft.No;
-            txtChegada.SelectedText = "";
-            txtChegada.SelectionLength = 0;
-            txtChegada.SelectionStart = 0;
-            txtChegada.ShortcutsEnabled = true;
-            txtChegada.Size = new Size(369, 48);
-            txtChegada.SkipLiterals = true;
-            txtChegada.TabIndex = 2;
-            txtChegada.TabStop = false;
-            txtChegada.Text = "  /  /";
-            txtChegada.TextAlign = HorizontalAlignment.Left;
-            txtChegada.TextMaskFormat = MaskFormat.IncludeLiterals;
-            txtChegada.TrailingIcon = null;
-            txtChegada.UseSystemPasswordChar = false;
-            txtChegada.ValidatingType = null;
             // 
             // cboOnibus
             // 
@@ -202,11 +123,11 @@
             cboDestino.Hint = "Destino";
             cboDestino.IntegralHeight = false;
             cboDestino.ItemHeight = 43;
-            cboDestino.Location = new Point(22, 168);
+            cboDestino.Location = new Point(412, 175);
             cboDestino.MaxDropDownItems = 4;
             cboDestino.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cboDestino.Name = "cboDestino";
-            cboDestino.Size = new Size(369, 49);
+            cboDestino.Size = new Size(332, 49);
             cboDestino.StartIndex = 0;
             cboDestino.TabIndex = 4;
             // 
@@ -225,23 +146,165 @@
             cboOrigem.Hint = "Origem";
             cboOrigem.IntegralHeight = false;
             cboOrigem.ItemHeight = 43;
-            cboOrigem.Location = new Point(397, 168);
+            cboOrigem.Location = new Point(22, 175);
             cboOrigem.MaxDropDownItems = 4;
             cboOrigem.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cboOrigem.Name = "cboOrigem";
-            cboOrigem.Size = new Size(369, 49);
+            cboOrigem.Size = new Size(332, 49);
             cboOrigem.StartIndex = 0;
             cboOrigem.TabIndex = 5;
+            cboOrigem.SelectedIndexChanged += cboOrigem_SelectedIndexChanged;
+            // 
+            // dataSaida
+            // 
+            dataSaida.CalendarForeColor = SystemColors.ControlDarkDark;
+            dataSaida.CalendarTitleForeColor = SystemColors.AppWorkspace;
+            dataSaida.CustomFormat = "dd/MM/yyyy";
+            dataSaida.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataSaida.Format = DateTimePickerFormat.Short;
+            dataSaida.Location = new Point(22, 46);
+            dataSaida.MaxDate = new DateTime(2025, 12, 31, 0, 0, 0, 0);
+            dataSaida.MinDate = new DateTime(2024, 1, 1, 0, 0, 0, 0);
+            dataSaida.Name = "dataSaida";
+            dataSaida.Size = new Size(216, 35);
+            dataSaida.TabIndex = 7;
+            dataSaida.Value = new DateTime(2024, 12, 5, 0, 0, 0, 0);
+            // 
+            // lblSaida
+            // 
+            lblSaida.AutoSize = true;
+            lblSaida.BackColor = Color.Transparent;
+            lblSaida.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            lblSaida.ForeColor = Color.Gray;
+            lblSaida.Location = new Point(22, 27);
+            lblSaida.Name = "lblSaida";
+            lblSaida.Size = new Size(111, 20);
+            lblSaida.TabIndex = 9;
+            lblSaida.Text = "Data de Saída";
+            // 
+            // dataChegada
+            // 
+            dataChegada.CalendarForeColor = SystemColors.ControlDarkDark;
+            dataChegada.CalendarTitleForeColor = SystemColors.AppWorkspace;
+            dataChegada.CustomFormat = "dd/MM/yyyy";
+            dataChegada.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataChegada.Format = DateTimePickerFormat.Short;
+            dataChegada.Location = new Point(412, 46);
+            dataChegada.MaxDate = new DateTime(2025, 12, 31, 0, 0, 0, 0);
+            dataChegada.MinDate = new DateTime(2024, 1, 1, 0, 0, 0, 0);
+            dataChegada.Name = "dataChegada";
+            dataChegada.Size = new Size(216, 35);
+            dataChegada.TabIndex = 10;
+            dataChegada.Value = new DateTime(2024, 12, 5, 0, 0, 0, 0);
+            // 
+            // lblChegada
+            // 
+            lblChegada.AutoSize = true;
+            lblChegada.BackColor = Color.Transparent;
+            lblChegada.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            lblChegada.ForeColor = Color.Gray;
+            lblChegada.Location = new Point(421, 27);
+            lblChegada.Name = "lblChegada";
+            lblChegada.Size = new Size(135, 20);
+            lblChegada.TabIndex = 14;
+            lblChegada.Text = "Data de Chegada";
+            // 
+            // txtHoraSaida
+            // 
+            txtHoraSaida.AllowPromptAsInput = true;
+            txtHoraSaida.AnimateReadOnly = false;
+            txtHoraSaida.AsciiOnly = false;
+            txtHoraSaida.BackgroundImageLayout = ImageLayout.None;
+            txtHoraSaida.BeepOnError = false;
+            txtHoraSaida.CutCopyMaskFormat = MaskFormat.IncludeLiterals;
+            txtHoraSaida.Depth = 0;
+            txtHoraSaida.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtHoraSaida.HidePromptOnLeave = false;
+            txtHoraSaida.HideSelection = true;
+            txtHoraSaida.Hint = "Hora de Saída";
+            txtHoraSaida.InsertKeyMode = InsertKeyMode.Default;
+            txtHoraSaida.LeadingIcon = null;
+            txtHoraSaida.Location = new Point(244, 33);
+            txtHoraSaida.Mask = "90:00";
+            txtHoraSaida.MaxLength = 32767;
+            txtHoraSaida.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtHoraSaida.Name = "txtHoraSaida";
+            txtHoraSaida.PasswordChar = '\0';
+            txtHoraSaida.PrefixSuffixText = null;
+            txtHoraSaida.PromptChar = '_';
+            txtHoraSaida.ReadOnly = false;
+            txtHoraSaida.RejectInputOnFirstFailure = false;
+            txtHoraSaida.ResetOnPrompt = true;
+            txtHoraSaida.ResetOnSpace = true;
+            txtHoraSaida.RightToLeft = RightToLeft.No;
+            txtHoraSaida.SelectedText = "";
+            txtHoraSaida.SelectionLength = 0;
+            txtHoraSaida.SelectionStart = 0;
+            txtHoraSaida.ShortcutsEnabled = true;
+            txtHoraSaida.Size = new Size(110, 48);
+            txtHoraSaida.SkipLiterals = true;
+            txtHoraSaida.TabIndex = 15;
+            txtHoraSaida.TabStop = false;
+            txtHoraSaida.Text = "  :";
+            txtHoraSaida.TextAlign = HorizontalAlignment.Left;
+            txtHoraSaida.TextMaskFormat = MaskFormat.IncludeLiterals;
+            txtHoraSaida.TrailingIcon = null;
+            txtHoraSaida.UseSystemPasswordChar = false;
+            txtHoraSaida.ValidatingType = null;
+            // 
+            // txtHoraChegada
+            // 
+            txtHoraChegada.AllowPromptAsInput = true;
+            txtHoraChegada.AnimateReadOnly = false;
+            txtHoraChegada.AsciiOnly = false;
+            txtHoraChegada.BackgroundImageLayout = ImageLayout.None;
+            txtHoraChegada.BeepOnError = false;
+            txtHoraChegada.CutCopyMaskFormat = MaskFormat.IncludeLiterals;
+            txtHoraChegada.Depth = 0;
+            txtHoraChegada.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtHoraChegada.HidePromptOnLeave = false;
+            txtHoraChegada.HideSelection = true;
+            txtHoraChegada.Hint = "Hora de Chegada";
+            txtHoraChegada.InsertKeyMode = InsertKeyMode.Default;
+            txtHoraChegada.LeadingIcon = null;
+            txtHoraChegada.Location = new Point(634, 33);
+            txtHoraChegada.Mask = "90:00";
+            txtHoraChegada.MaxLength = 32767;
+            txtHoraChegada.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtHoraChegada.Name = "txtHoraChegada";
+            txtHoraChegada.PasswordChar = '\0';
+            txtHoraChegada.PrefixSuffixText = null;
+            txtHoraChegada.PromptChar = '_';
+            txtHoraChegada.ReadOnly = false;
+            txtHoraChegada.RejectInputOnFirstFailure = false;
+            txtHoraChegada.ResetOnPrompt = true;
+            txtHoraChegada.ResetOnSpace = true;
+            txtHoraChegada.RightToLeft = RightToLeft.No;
+            txtHoraChegada.SelectedText = "";
+            txtHoraChegada.SelectionLength = 0;
+            txtHoraChegada.SelectionStart = 0;
+            txtHoraChegada.ShortcutsEnabled = true;
+            txtHoraChegada.Size = new Size(110, 48);
+            txtHoraChegada.SkipLiterals = true;
+            txtHoraChegada.TabIndex = 16;
+            txtHoraChegada.TabStop = false;
+            txtHoraChegada.Text = "  :";
+            txtHoraChegada.TextAlign = HorizontalAlignment.Left;
+            txtHoraChegada.TextMaskFormat = MaskFormat.IncludeLiterals;
+            txtHoraChegada.TrailingIcon = null;
+            txtHoraChegada.UseSystemPasswordChar = false;
+            txtHoraChegada.ValidatingType = null;
             // 
             // CadastroViagem
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 396);
+            ClientSize = new Size(843, 385);
             Name = "CadastroViagem";
             Text = "Cadastro de Viagem";
             tabControlCadastro.ResumeLayout(false);
             tabPageCadastro.ResumeLayout(false);
+            tabPageCadastro.PerformLayout();
             tabPageConsulta.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -253,5 +316,11 @@
         private ReaLTaiizor.Controls.MaterialComboBox cboOrigem;
         private ReaLTaiizor.Controls.MaterialComboBox cboDestino;
         private ReaLTaiizor.Controls.MaterialComboBox cboOnibus;
+        private DateTimePicker dataSaida;
+        private ReaLTaiizor.Controls.BigLabel lblSaida;
+        private DateTimePicker dataChegada;
+        private ReaLTaiizor.Controls.BigLabel lblChegada;
+        private ReaLTaiizor.Controls.MaterialMaskedTextBox txtHoraChegada;
+        private ReaLTaiizor.Controls.MaterialMaskedTextBox txtHoraSaida;
     }
 }

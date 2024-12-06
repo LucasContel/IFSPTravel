@@ -70,18 +70,6 @@
             // 
             btnSalvar.Location = new Point(634, 243);
             // 
-            // btnExcluir
-            // 
-            btnExcluir.Location = new Point(1077, 472);
-            // 
-            // btnEditar
-            // 
-            btnEditar.Location = new Point(978, 472);
-            // 
-            // btnNovo
-            // 
-            btnNovo.Location = new Point(879, 472);
-            // 
             // txtPlaca
             // 
             txtPlaca.AnimateReadOnly = false;

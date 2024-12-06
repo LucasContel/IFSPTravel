@@ -63,15 +63,7 @@ namespace IFSPStore.app.Infra
             Services.AddTransient<CadastroPassageiro, CadastroPassageiro>();
             Services.AddTransient<CadastroOnibus, CadastroOnibus>();
             Services.AddTransient<CadastroViagem, CadastroViagem>();
-            /*
-            Services.AddTransient<CadastroCidade, CadastroCidade>();
-            Services.AddTransient<CadastroCliente, CadastroCliente>();
-            Services.AddTransient<CadastroGrupo, CadastroGrupo>();
-            Services.AddTransient<CadastroProduto, CadastroProduto>();
-            Services.AddTransient<CadastroUsuario, CadastroUsuario>();
-            Services.AddTransient<CadastroVenda, CadastroVenda>();
-            Services.AddTransient<Login, Login>();
-            */
+            Services.AddTransient<CadastroReserva, CadastroReserva>();
 
             #endregion
 
@@ -83,19 +75,22 @@ namespace IFSPStore.app.Infra
                 .ForMember(c => c.NomeEstado, c => c.MapFrom(x => $"{x.Nome}/{x.Estado}"));
 
                 config.CreateMap<Onibus, OnibusModel>()
-                .ForMember(c => c.NumeroAssentos, c => c.MapFrom(x => x.Assentos!.Count));
+                .ForMember(c => c.NumeroAssentos, c => c.MapFrom(x => x.Assentos!.Count))
+                .ForMember(c => c.ModeloPlaca, c => c.MapFrom(x => $"{x.Modelo} - {x.Placa}"));
 
                 config.CreateMap<Assento, AssentoModel>();
                 
-                config.CreateMap<Passageiro, PassageiroModel>();
+                config.CreateMap<Passageiro, PassageiroModel>()
+                .ForMember(c => c.NomeCpf, c => c.MapFrom(x => $"{x.Nome} / {x.Cpf}"));
 
                 config.CreateMap<Viagem, ViagemModel>()
-                .ForMember(c => c.ModeloOnibus, c => c.MapFrom(x => x.Onibus!.Modelo))
                 .ForMember(c => c.IdOnibus, c => c.MapFrom(x => x.Onibus!.Id))
+                .ForMember(c => c.ModeloOnibus, c => c.MapFrom(x => x.Onibus!.Modelo))
                 .ForMember(c => c.CidadeOrigem, c => c.MapFrom(x => $"{x.Origem!.Nome}/{x.Origem!.Estado}"))
                 .ForMember(c => c.IdOrigem, c => c.MapFrom(x => x.Origem!.Id))
                 .ForMember(c => c.CidadeDestino, c => c.MapFrom(x => $"{x.Destino!.Nome}/{x.Destino!.Estado}"))
-                .ForMember(c => c.IdDestino, c => c.MapFrom(x => x.Destino!.Id));
+                .ForMember(c => c.IdDestino, c => c.MapFrom(x => x.Destino!.Id))
+                .ForMember(c => c.Informacoes, c => c.MapFrom(x => $"{x.Origem!.Nome}/{x.Origem!.Estado} - {x.Destino!.Nome}/{x.Destino!.Estado} - {x.Onibus!.Modelo}/{x.Onibus!.Placa} - {x.DataSaida:dd/MM/yy HH:mm} - {x.DataChegada:dd/MM/yy HH:mm}"));
 
 
                 config.CreateMap<Reserva, ReservaModel>()

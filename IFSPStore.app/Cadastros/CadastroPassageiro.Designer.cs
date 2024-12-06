@@ -67,18 +67,6 @@
             // 
             btnSalvar.Location = new Point(681, 224);
             // 
-            // btnExcluir
-            // 
-            btnExcluir.Location = new Point(727, 226);
-            // 
-            // btnEditar
-            // 
-            btnEditar.Location = new Point(628, 226);
-            // 
-            // btnNovo
-            // 
-            btnNovo.Location = new Point(529, 226);
-            // 
             // txtNome
             // 
             txtNome.AnimateReadOnly = false;
@@ -143,7 +131,7 @@
             // 
             // txtCpf
             // 
-            txtCpf.AllowPromptAsInput = true;
+            txtCpf.AllowPromptAsInput = false;
             txtCpf.AnimateReadOnly = false;
             txtCpf.AsciiOnly = false;
             txtCpf.BackgroundImageLayout = ImageLayout.None;
@@ -157,7 +145,7 @@
             txtCpf.InsertKeyMode = InsertKeyMode.Default;
             txtCpf.LeadingIcon = null;
             txtCpf.Location = new Point(29, 151);
-            txtCpf.Mask = "999.999.999-99";
+            txtCpf.Mask = "999,999,999-99";
             txtCpf.MaxLength = 32767;
             txtCpf.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtCpf.Name = "txtCpf";

@@ -12,17 +12,17 @@ namespace IFSPStore.app
             InitializeComponent();
         }
 
-        private void cidadeToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            ExibeFormulario<CadastroCidade>();
-        }
-
         private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.ApplicationExitCall)
             {
                 e.Cancel = true;
             }
+        }
+
+        private void cidadeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ExibeFormulario<CadastroCidade>();
         }
 
         private void cidadeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -38,6 +38,11 @@ namespace IFSPStore.app
         private void viagemToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ExibeFormulario<CadastroViagem>();
+        }
+
+        private void reservaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExibeFormulario<CadastroReserva>();
         }
 
         private void ExibeFormulario<TFormulario>() where TFormulario : Form

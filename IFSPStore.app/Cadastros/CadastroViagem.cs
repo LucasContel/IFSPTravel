@@ -3,6 +3,10 @@ using IFSPStore.app.Models;
 using IFSPStore.Domain.Base;
 using IFSPStore.Domain.Entities;
 using IFSPStore.Service.Validators;
+using System.Globalization;
+
+//using System.Globalization;
+using System.Windows.Forms;
 
 namespace IFSPStore.app
 {
@@ -17,53 +21,78 @@ namespace IFSPStore.app
 
         public CadastroViagem(IBaseService<Cidade> cidadeService, IBaseService<Onibus> onibusService, IBaseService<Viagem> viagemService)
         {
-            cidadeService = _cidadeService;
-            onibusService = _onibusService;
-            viagemService = _viagemService;
+            _cidadeService = cidadeService;
+            _onibusService = onibusService;
+            _viagemService = viagemService;
+
 
             InitializeComponent();
 
+            CarregarData();
+
             CarregarCombo();
+
+
         }
+
+        private void CarregarData()
+        {
+            txtHoraChegada.Text = $"{DateTime.Now.Hour.ToString()}:{DateTime.Now.Minute.ToString()}";
+            txtHoraSaida.Text = $"{DateTime.Now.Hour.ToString()}:{DateTime.Now.Minute.ToString()}";
+            dataChegada.Value = DateTime.Now.Date;
+            dataSaida.Value = DateTime.Now.Date;
+        }
+
+
         private void CarregarCombo()
         {
             cboOnibus.ValueMember = "Id";
-            cboOnibus.DisplayMember = "Nome";
+            cboOnibus.DisplayMember = "ModeloPlaca";
             cboOnibus.DataSource = _onibusService?.Get<OnibusModel>().ToList();
-
+            /*
             cboDestino.ValueMember = "Id";
             cboDestino.DisplayMember = "NomeEstado";
             cboDestino.DataSource = _cidadeService?.Get<CidadeModel>().ToList();
-
+            */
             cboOrigem.ValueMember = "Id";
             cboOrigem.DisplayMember = "NomeEstado";
             cboOrigem.DataSource = _cidadeService?.Get<CidadeModel>().ToList();
+            TrocaDestino();
+        }
+
+
+        private void TrocaDestino()
+        {
+            if (int.TryParse(cboOrigem.SelectedValue.ToString(), out var idOrigem))
+            {
+                cboDestino.DataSource = _cidadeService?.Get<CidadeModel>().ToList()
+                .Where(c => c.Id != idOrigem)
+                .ToList();
+
+                cboDestino.DisplayMember = "NomeEstado";
+                cboDestino.ValueMember = "Id";
+            }
         }
 
         private void PreencheObjeto(Viagem viagem)
         {
-            string format = "dd/MM/yyyy";
 
-            if (DateTime.TryParseExact(txtChegada.Text, format,
-                System.Globalization.CultureInfo.InvariantCulture,
-                System.Globalization.DateTimeStyles.None, out DateTime dataChegada))
+            if (TimeSpan.TryParse(txtHoraSaida.Text, out TimeSpan horaSaida))
             {
-                viagem.DataChegada = dataChegada;
+                viagem.DataSaida = dataSaida.Value.Date.Add(horaSaida);
+                if (TimeSpan.TryParse(txtHoraChegada.Text, out TimeSpan horaChegada))
+                {
+                    viagem.DataChegada = dataChegada.Value.Date.Add(horaChegada);
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, insira uma hora de chegada válida!", "IFSPTravel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Por favor, insira uma data de chegada válida!", "IFSPTravel", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
-            if (DateTime.TryParseExact(txtSaida.Text, format,
-                System.Globalization.CultureInfo.InvariantCulture,
-                System.Globalization.DateTimeStyles.None, out DateTime dataSaida))
-            {
-                viagem.DataSaida = dataSaida;
-            }
-            else
-            {
-                MessageBox.Show("Por favor, insira uma data de saída válida!", "IFSPTravel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, insira uma hora de saída válida!", "IFSPTravel", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             if (int.TryParse(cboOnibus.SelectedValue.ToString(), out var idOnibus))
@@ -110,7 +139,7 @@ namespace IFSPStore.app
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, @"IFSP Store", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, @"IFSP Travel", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -123,26 +152,35 @@ namespace IFSPStore.app
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, @"IFSP Store", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, @"IFSP Travel", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         protected override void CarregaGrid()
         {
-            viagens = _viagemService.Get<ViagemModel>(new[] { "Cidade" }).ToList();
+            viagens = _viagemService.Get<ViagemModel>(new[] { "Origem" }).ToList();
             dataGridViewConsulta.DataSource = viagens;
-            dataGridViewConsulta.Columns["Origem"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewConsulta.Columns["IdCidade"]!.Visible = false;
+            dataGridViewConsulta.Columns["Id"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewConsulta.Columns["IdOrigem"]!.Visible = false;
+            dataGridViewConsulta.Columns["IdDestino"]!.Visible = false;
+            dataGridViewConsulta.Columns["IdOnibus"]!.Visible = false;
         }
 
         protected override void CarregaRegistro(DataGridViewRow? linha)
         {
             txtId = linha?.Cells["Id"].Value.ToString();
-            txtChegada.Text = linha?.Cells["Chegada"].Value.ToString();
-            txtSaida.Text = linha?.Cells["Origem"].Value.ToString();
-            cboOrigem.SelectedValue = linha?.Cells["IdCidade"].Value;
-            cboDestino.SelectedValue = linha?.Cells["IdCidade"].Value;
-            cboOnibus.SelectedValue = linha?.Cells["Onibus"].Value;
+            dataChegada.Value = DateTime.Parse(linha?.Cells["DataChegada"].Value.ToString());
+            dataSaida.Value = DateTime.Parse(linha?.Cells["DataSaida"].Value.ToString());
+            txtHoraChegada.Text = DateTime.Parse(linha?.Cells["DataChegada"].Value.ToString()).TimeOfDay.ToString();
+            txtHoraSaida.Text = DateTime.Parse(linha?.Cells["DataSaida"].Value.ToString()).TimeOfDay.ToString();
+            cboOrigem.SelectedValue = linha?.Cells["IdOrigem"].Value;
+            cboDestino.SelectedValue = linha?.Cells["IdDestino"].Value;
+            cboOnibus.SelectedValue = linha?.Cells["IdOnibus"].Value;
+        }
+
+        private void cboOrigem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TrocaDestino();
         }
     }
 }

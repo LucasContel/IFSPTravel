@@ -12,6 +12,7 @@ namespace IFSPStore.app.Models
         public string? CidadeOrigem { get; set; }
         public int IdDestino { get; set; }
         public string? CidadeDestino { get; set; }
+        public string? Informacoes { get; set; }
 
     }
 }

@@ -67,17 +67,6 @@
             // 
             btnSalvar.Location = new Point(580, 215);
             // 
-            // btnExcluir
-            // 
-            btnExcluir.Location = new Point(628, 222);
-            // 
-            // btnEditar
-            // 
-            btnEditar.Location = new Point(529, 222);
-            // 
-            // btnNovo
-            // 
-            btnNovo.Location = new Point(430, 222);
             // 
             // txtNome
             // 

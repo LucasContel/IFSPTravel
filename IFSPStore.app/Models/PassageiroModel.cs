@@ -8,6 +8,8 @@ namespace IFSPStore.app.Models
         public string? Telefone { get; set; }
         public string? Cpf { get; set; }
         public string? Email { get; set; }
-        
+
+        public string? NomeCpf { get; set; }
+
     }
 }

@@ -12,6 +12,8 @@ namespace IFSPStore.app.Models
         public string? Modelo { get; set; }
         public bool Wifi { get; set; }
         public int NumeroAssentos { get; set; }
+
+        public string? ModeloPlaca { get; set; }
         public List<AssentoModel> Assentos { get; set; }
     }
 

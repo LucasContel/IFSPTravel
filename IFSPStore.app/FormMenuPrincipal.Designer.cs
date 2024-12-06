@@ -71,6 +71,7 @@
             reservaToolStripMenuItem.Name = "reservaToolStripMenuItem";
             reservaToolStripMenuItem.Size = new Size(180, 22);
             reservaToolStripMenuItem.Text = "Reserva";
+            reservaToolStripMenuItem.Click += reservaToolStripMenuItem_Click;
             // 
             // toolStripMenuItem1
             // 

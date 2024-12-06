@@ -59,7 +59,7 @@
             tabControlCadastro.Multiline = true;
             tabControlCadastro.Name = "tabControlCadastro";
             tabControlCadastro.SelectedIndex = 0;
-            tabControlCadastro.Size = new Size(697, 272);
+            tabControlCadastro.Size = new Size(697, 275);
             tabControlCadastro.TabIndex = 0;
             // 
             // tabPageCadastro
@@ -73,7 +73,7 @@
             tabPageCadastro.Margin = new Padding(3, 2, 3, 2);
             tabPageCadastro.Name = "tabPageCadastro";
             tabPageCadastro.Padding = new Padding(3, 2, 3, 2);
-            tabPageCadastro.Size = new Size(689, 237);
+            tabPageCadastro.Size = new Size(689, 240);
             tabPageCadastro.TabIndex = 0;
             tabPageCadastro.Text = "Cadastro";
             // 
@@ -132,7 +132,7 @@
             tabPageConsulta.Margin = new Padding(3, 2, 3, 2);
             tabPageConsulta.Name = "tabPageConsulta";
             tabPageConsulta.Padding = new Padding(3, 2, 3, 2);
-            tabPageConsulta.Size = new Size(689, 237);
+            tabPageConsulta.Size = new Size(689, 240);
             tabPageConsulta.TabIndex = 1;
             tabPageConsulta.Text = "Consulta";
             tabPageConsulta.UseVisualStyleBackColor = true;
@@ -165,7 +165,7 @@
             btnExcluir.HighEmphasis = true;
             btnExcluir.Icon = null;
             btnExcluir.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnExcluir.Location = new Point(590, 209);
+            btnExcluir.Location = new Point(588, 207);
             btnExcluir.Margin = new Padding(4);
             btnExcluir.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnExcluir.Name = "btnExcluir";
@@ -188,7 +188,7 @@
             btnEditar.HighEmphasis = true;
             btnEditar.Icon = null;
             btnEditar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnEditar.Location = new Point(492, 209);
+            btnEditar.Location = new Point(490, 207);
             btnEditar.Margin = new Padding(4);
             btnEditar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnEditar.Name = "btnEditar";
@@ -211,7 +211,7 @@
             btnNovo.HighEmphasis = true;
             btnNovo.Icon = null;
             btnNovo.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnNovo.Location = new Point(394, 209);
+            btnNovo.Location = new Point(392, 207);
             btnNovo.Margin = new Padding(4);
             btnNovo.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnNovo.Name = "btnNovo";
@@ -231,12 +231,13 @@
             imageList1.TransparentColor = Color.Transparent;
             imageList1.Images.SetKeyName(0, "form.png");
             imageList1.Images.SetKeyName(1, "search.png");
+            imageList1.Images.SetKeyName(2, "Seat - Icon.png");
             // 
             // CadastroBase
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(700, 338);
+            ClientSize = new Size(700, 341);
             Controls.Add(tabControlCadastro);
             DrawerShowIconsWhenHidden = true;
             DrawerTabControl = tabControlCadastro;
@@ -252,15 +253,15 @@
         }
 
         #endregion
-        private ImageList imageList1;
         protected ReaLTaiizor.Controls.MaterialTabControl tabControlCadastro;
         protected TabPage tabPageCadastro;
         protected TabPage tabPageConsulta;
         protected DataGridView dataGridViewConsulta;
         protected ReaLTaiizor.Controls.MaterialButton btnCancelar;
         protected ReaLTaiizor.Controls.MaterialButton btnSalvar;
-        protected ReaLTaiizor.Controls.MaterialButton btnExcluir;
-        protected ReaLTaiizor.Controls.MaterialButton btnEditar;
-        protected ReaLTaiizor.Controls.MaterialButton btnNovo;
+        private ReaLTaiizor.Controls.MaterialButton btnExcluir;
+        private ReaLTaiizor.Controls.MaterialButton btnEditar;
+        private ReaLTaiizor.Controls.MaterialButton btnNovo;
+        protected ImageList imageList1;
     }
 }

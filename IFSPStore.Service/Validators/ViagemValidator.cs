@@ -9,13 +9,11 @@ namespace IFSPStore.Service.Validators
         {
             RuleFor(c => c.DataSaida)
                 .NotEmpty().WithMessage("Por favor informe a data de saída.")
-                .NotNull().WithMessage("Por favor informe a data de saída.")
-                .GreaterThanOrEqualTo(DateTime.Now).WithMessage("A data de saída deve ser futura ou hoje.");
+                .NotNull().WithMessage("Por favor informe a data de saída.");
 
             RuleFor(c => c.DataChegada)
                 .NotEmpty().WithMessage("Por favor informe a data de chegada.")
-                .NotNull().WithMessage("Por favor informe a data de chegada.")
-                .GreaterThanOrEqualTo(DateTime.Now).WithMessage("A data de saída deve ser futura ou hoje.");
+                .NotNull().WithMessage("Por favor informe a data de chegada.");
         }
     }
 }
