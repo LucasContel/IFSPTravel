@@ -64,6 +64,7 @@ namespace IFSPStore.app.Infra
             Services.AddTransient<CadastroOnibus, CadastroOnibus>();
             Services.AddTransient<CadastroViagem, CadastroViagem>();
             Services.AddTransient<CadastroReserva, CadastroReserva>();
+            Services.AddTransient<Rota, Rota>();
 
             #endregion
 
@@ -94,13 +95,14 @@ namespace IFSPStore.app.Infra
 
 
                 config.CreateMap<Reserva, ReservaModel>()
-                .ForMember(c => c.ViagemDestino, c => c.MapFrom(x => x.Viagem!.Destino))
-                .ForMember(c => c.ViagemOrigem, c => c.MapFrom(x => x.Viagem!.Origem))
+                .ForMember(c => c.ViagemDestino, c => c.MapFrom(x => $"{x.Viagem!.Destino.Nome}/{x.Viagem!.Destino.Estado}"))
+                .ForMember(c => c.ViagemOrigem, c => c.MapFrom(x => $"{x.Viagem!.Origem.Nome}/{x.Viagem!.Origem.Estado}"))
                 .ForMember(c => c.IdViagem, c => c.MapFrom(x => x.Viagem!.Id))
-                .ForMember(c => c.NomePassageiro, c => c.MapFrom(x => x.Passageiro!.Nome))
+                .ForMember(c => c.NomeCpf, c => c.MapFrom(x => $"{x.Passageiro.Nome} / {x.Passageiro.Cpf}"))
                 .ForMember(c => c.IdPassageiro, c => c.MapFrom(x => x.Passageiro!.Id))
-                .ForMember(c => c.NumeroAssento, c => c.MapFrom(x => x.Assento!.NumeroAssento))
-                .ForMember(c => c.IdAssento, c => c.MapFrom(x => x.Assento!.Id));                
+                                .ForMember(c => c.IdAssento, c => c.MapFrom(x => x.Assento!.Id))
+                .ForMember(c => c.NumeroAssento, c => c.MapFrom(x => x.Assento!.NumeroAssento));
+
 
             }).CreateMapper());
             #endregion

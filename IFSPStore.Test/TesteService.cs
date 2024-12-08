@@ -261,7 +261,7 @@ namespace IFSPStore.Test
 
             var passageiro = passageiroService?.Get<Passageiro>().FirstOrDefault(c => c.Id == 1);
 
-            var onibus = onibusService?.Get<Onibus>().FirstOrDefault(c => c.Id == 3);
+            var onibus = onibusService?.Get<Onibus>().FirstOrDefault(c => c.Id == 2);
 
             var assento = assentoService?.Get<Assento>().FirstOrDefault(a => a.Onibus.Id == onibus.Id && a.NumeroAssento == 4);
 

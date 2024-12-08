@@ -25,7 +25,9 @@ namespace IFSPStore.Service.Validators
         {
             RuleFor(c => c.NumeroAssento)
                 .NotEmpty().WithMessage("Por favor informe o número do assento.")
-                .NotNull().WithMessage("Por favor informe o número do assento.");
+                .NotNull().WithMessage("Por favor informe o número do assento.")
+                .GreaterThan(0).WithMessage("Selecione um assento válido");
+                
         }
     }
 }

@@ -7,7 +7,7 @@
         public string? ViagemOrigem { get; set; }
         public string? ViagemDestino { get; set; }
         public int IdPassageiro { get; set; }
-        public string? NomePassageiro { get; set; }
+        public string? NomeCpf { get; set; }
         public int IdAssento { get; set; }
         public int NumeroAssento{ get; set; }
     }

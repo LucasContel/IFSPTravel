@@ -232,6 +232,7 @@
             imageList1.Images.SetKeyName(0, "form.png");
             imageList1.Images.SetKeyName(1, "search.png");
             imageList1.Images.SetKeyName(2, "Seat - Icon.png");
+            imageList1.Images.SetKeyName(3, "Rota - Icon.png");
             // 
             // CadastroBase
             // 
@@ -244,6 +245,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "CadastroBase";
             Padding = new Padding(0, 64, 3, 2);
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "CadastroBase";
             tabControlCadastro.ResumeLayout(false);
             tabPageCadastro.ResumeLayout(false);

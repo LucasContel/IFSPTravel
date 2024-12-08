@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroViagem));
             cboOnibus = new ReaLTaiizor.Controls.MaterialComboBox();
             cboDestino = new ReaLTaiizor.Controls.MaterialComboBox();
             cboOrigem = new ReaLTaiizor.Controls.MaterialComboBox();
@@ -37,17 +38,34 @@
             lblChegada = new ReaLTaiizor.Controls.BigLabel();
             txtHoraSaida = new ReaLTaiizor.Controls.MaterialMaskedTextBox();
             txtHoraChegada = new ReaLTaiizor.Controls.MaterialMaskedTextBox();
+            tabPageRota = new TabPage();
+            splitContainer = new SplitContainer();
+            webRota = new Microsoft.Web.WebView2.WinForms.WebView2();
+            cboOrigemRota = new ReaLTaiizor.Controls.MaterialComboBox();
+            cboDestinoRota = new ReaLTaiizor.Controls.MaterialComboBox();
+            btnRetornar = new ReaLTaiizor.Controls.MaterialButton();
+            btnRota = new ReaLTaiizor.Controls.MaterialButton();
             tabControlCadastro.SuspendLayout();
             tabPageCadastro.SuspendLayout();
-            tabPageConsulta.SuspendLayout();
+            tabPageRota.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer).BeginInit();
+            splitContainer.Panel1.SuspendLayout();
+            splitContainer.Panel2.SuspendLayout();
+            splitContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)webRota).BeginInit();
             SuspendLayout();
             // 
             // tabControlCadastro
             // 
-            tabControlCadastro.Size = new Size(840, 319);
+            tabControlCadastro.Controls.Add(tabPageRota);
+            tabControlCadastro.Size = new Size(1077, 654);
+            tabControlCadastro.Controls.SetChildIndex(tabPageRota, 0);
+            tabControlCadastro.Controls.SetChildIndex(tabPageConsulta, 0);
+            tabControlCadastro.Controls.SetChildIndex(tabPageCadastro, 0);
             // 
             // tabPageCadastro
             // 
+            tabPageCadastro.Controls.Add(btnRota);
             tabPageCadastro.Controls.Add(txtHoraChegada);
             tabPageCadastro.Controls.Add(txtHoraSaida);
             tabPageCadastro.Controls.Add(dataChegada);
@@ -57,7 +75,8 @@
             tabPageCadastro.Controls.Add(cboDestino);
             tabPageCadastro.Controls.Add(cboOnibus);
             tabPageCadastro.Controls.Add(lblChegada);
-            tabPageCadastro.Size = new Size(832, 284);
+            tabPageCadastro.Size = new Size(1069, 619);
+            tabPageCadastro.Enter += tabPageCadastro_Enter;
             tabPageCadastro.Controls.SetChildIndex(lblChegada, 0);
             tabPageCadastro.Controls.SetChildIndex(btnSalvar, 0);
             tabPageCadastro.Controls.SetChildIndex(btnCancelar, 0);
@@ -69,21 +88,27 @@
             tabPageCadastro.Controls.SetChildIndex(dataChegada, 0);
             tabPageCadastro.Controls.SetChildIndex(txtHoraSaida, 0);
             tabPageCadastro.Controls.SetChildIndex(txtHoraChegada, 0);
+            tabPageCadastro.Controls.SetChildIndex(btnRota, 0);
             // 
             // tabPageConsulta
             // 
-            tabPageConsulta.Size = new Size(832, 284);
+            tabPageConsulta.Size = new Size(1069, 619);
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(574, 244);
+            btnCancelar.Location = new Point(688, 308);
             // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(667, 244);
+            btnSalvar.Location = new Point(781, 308);
             // 
-            // btnExcluir
+            // imageList1
             // 
+            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
+            imageList1.Images.SetKeyName(0, "form.png");
+            imageList1.Images.SetKeyName(1, "search.png");
+            imageList1.Images.SetKeyName(2, "Seat - Icon.png");
+            imageList1.Images.SetKeyName(3, "Rota - Icon.png");
             // 
             // cboOnibus
             // 
@@ -100,7 +125,7 @@
             cboOnibus.Hint = "Ônibus";
             cboOnibus.IntegralHeight = false;
             cboOnibus.ItemHeight = 43;
-            cboOnibus.Location = new Point(133, 99);
+            cboOnibus.Location = new Point(245, 129);
             cboOnibus.MaxDropDownItems = 4;
             cboOnibus.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cboOnibus.Name = "cboOnibus";
@@ -123,7 +148,7 @@
             cboDestino.Hint = "Destino";
             cboDestino.IntegralHeight = false;
             cboDestino.ItemHeight = 43;
-            cboDestino.Location = new Point(412, 175);
+            cboDestino.Location = new Point(524, 217);
             cboDestino.MaxDropDownItems = 4;
             cboDestino.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cboDestino.Name = "cboDestino";
@@ -146,7 +171,7 @@
             cboOrigem.Hint = "Origem";
             cboOrigem.IntegralHeight = false;
             cboOrigem.ItemHeight = 43;
-            cboOrigem.Location = new Point(22, 175);
+            cboOrigem.Location = new Point(134, 217);
             cboOrigem.MaxDropDownItems = 4;
             cboOrigem.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cboOrigem.Name = "cboOrigem";
@@ -162,7 +187,7 @@
             dataSaida.CustomFormat = "dd/MM/yyyy";
             dataSaida.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataSaida.Format = DateTimePickerFormat.Short;
-            dataSaida.Location = new Point(22, 46);
+            dataSaida.Location = new Point(134, 55);
             dataSaida.MaxDate = new DateTime(2025, 12, 31, 0, 0, 0, 0);
             dataSaida.MinDate = new DateTime(2024, 1, 1, 0, 0, 0, 0);
             dataSaida.Name = "dataSaida";
@@ -176,7 +201,7 @@
             lblSaida.BackColor = Color.Transparent;
             lblSaida.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             lblSaida.ForeColor = Color.Gray;
-            lblSaida.Location = new Point(22, 27);
+            lblSaida.Location = new Point(134, 36);
             lblSaida.Name = "lblSaida";
             lblSaida.Size = new Size(111, 20);
             lblSaida.TabIndex = 9;
@@ -189,7 +214,7 @@
             dataChegada.CustomFormat = "dd/MM/yyyy";
             dataChegada.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataChegada.Format = DateTimePickerFormat.Short;
-            dataChegada.Location = new Point(412, 46);
+            dataChegada.Location = new Point(524, 55);
             dataChegada.MaxDate = new DateTime(2025, 12, 31, 0, 0, 0, 0);
             dataChegada.MinDate = new DateTime(2024, 1, 1, 0, 0, 0, 0);
             dataChegada.Name = "dataChegada";
@@ -203,7 +228,7 @@
             lblChegada.BackColor = Color.Transparent;
             lblChegada.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             lblChegada.ForeColor = Color.Gray;
-            lblChegada.Location = new Point(421, 27);
+            lblChegada.Location = new Point(533, 36);
             lblChegada.Name = "lblChegada";
             lblChegada.Size = new Size(135, 20);
             lblChegada.TabIndex = 14;
@@ -224,7 +249,7 @@
             txtHoraSaida.Hint = "Hora de Saída";
             txtHoraSaida.InsertKeyMode = InsertKeyMode.Default;
             txtHoraSaida.LeadingIcon = null;
-            txtHoraSaida.Location = new Point(244, 33);
+            txtHoraSaida.Location = new Point(356, 42);
             txtHoraSaida.Mask = "90:00";
             txtHoraSaida.MaxLength = 32767;
             txtHoraSaida.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -267,7 +292,7 @@
             txtHoraChegada.Hint = "Hora de Chegada";
             txtHoraChegada.InsertKeyMode = InsertKeyMode.Default;
             txtHoraChegada.LeadingIcon = null;
-            txtHoraChegada.Location = new Point(634, 33);
+            txtHoraChegada.Location = new Point(746, 42);
             txtHoraChegada.Mask = "90:00";
             txtHoraChegada.MaxLength = 32767;
             txtHoraChegada.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -295,17 +320,160 @@
             txtHoraChegada.UseSystemPasswordChar = false;
             txtHoraChegada.ValidatingType = null;
             // 
+            // tabPageRota
+            // 
+            tabPageRota.Controls.Add(splitContainer);
+            tabPageRota.ImageKey = "Rota - Icon.png";
+            tabPageRota.Location = new Point(4, 31);
+            tabPageRota.Name = "tabPageRota";
+            tabPageRota.Padding = new Padding(3);
+            tabPageRota.Size = new Size(1069, 619);
+            tabPageRota.TabIndex = 2;
+            tabPageRota.Text = "Rota";
+            tabPageRota.UseVisualStyleBackColor = true;
+            tabPageRota.Enter += tabPageRota_Enter;
+            // 
+            // splitContainer
+            // 
+            splitContainer.Dock = DockStyle.Fill;
+            splitContainer.Location = new Point(3, 3);
+            splitContainer.Name = "splitContainer";
+            splitContainer.Orientation = Orientation.Horizontal;
+            // 
+            // splitContainer.Panel1
+            // 
+            splitContainer.Panel1.Controls.Add(webRota);
+            // 
+            // splitContainer.Panel2
+            // 
+            splitContainer.Panel2.Controls.Add(cboOrigemRota);
+            splitContainer.Panel2.Controls.Add(cboDestinoRota);
+            splitContainer.Panel2.Controls.Add(btnRetornar);
+            splitContainer.Size = new Size(1063, 613);
+            splitContainer.SplitterDistance = 553;
+            splitContainer.TabIndex = 0;
+            // 
+            // webRota
+            // 
+            webRota.AllowExternalDrop = true;
+            webRota.CreationProperties = null;
+            webRota.DefaultBackgroundColor = Color.White;
+            webRota.Dock = DockStyle.Fill;
+            webRota.Location = new Point(0, 0);
+            webRota.Name = "webRota";
+            webRota.Size = new Size(1063, 553);
+            webRota.TabIndex = 0;
+            webRota.ZoomFactor = 1D;
+            // 
+            // cboOrigemRota
+            // 
+            cboOrigemRota.AutoResize = false;
+            cboOrigemRota.BackColor = Color.FromArgb(255, 255, 255);
+            cboOrigemRota.Depth = 0;
+            cboOrigemRota.DrawMode = DrawMode.OwnerDrawVariable;
+            cboOrigemRota.DropDownHeight = 174;
+            cboOrigemRota.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboOrigemRota.DropDownWidth = 121;
+            cboOrigemRota.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cboOrigemRota.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cboOrigemRota.FormattingEnabled = true;
+            cboOrigemRota.Hint = "Origem";
+            cboOrigemRota.IntegralHeight = false;
+            cboOrigemRota.ItemHeight = 43;
+            cboOrigemRota.Location = new Point(72, 4);
+            cboOrigemRota.MaxDropDownItems = 4;
+            cboOrigemRota.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cboOrigemRota.Name = "cboOrigemRota";
+            cboOrigemRota.Size = new Size(332, 49);
+            cboOrigemRota.StartIndex = 0;
+            cboOrigemRota.TabIndex = 23;
+            cboOrigemRota.SelectedIndexChanged += cboOrigemRota_SelectedIndexChanged_1;
+            // 
+            // cboDestinoRota
+            // 
+            cboDestinoRota.AutoResize = false;
+            cboDestinoRota.BackColor = Color.FromArgb(255, 255, 255);
+            cboDestinoRota.Depth = 0;
+            cboDestinoRota.DrawMode = DrawMode.OwnerDrawVariable;
+            cboDestinoRota.DropDownHeight = 174;
+            cboDestinoRota.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboDestinoRota.DropDownWidth = 121;
+            cboDestinoRota.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cboDestinoRota.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cboDestinoRota.FormattingEnabled = true;
+            cboDestinoRota.Hint = "Destino";
+            cboDestinoRota.IntegralHeight = false;
+            cboDestinoRota.ItemHeight = 43;
+            cboDestinoRota.Location = new Point(645, 2);
+            cboDestinoRota.MaxDropDownItems = 4;
+            cboDestinoRota.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cboDestinoRota.Name = "cboDestinoRota";
+            cboDestinoRota.Size = new Size(332, 49);
+            cboDestinoRota.StartIndex = 0;
+            cboDestinoRota.TabIndex = 22;
+            cboDestinoRota.SelectedIndexChanged += cboDestinoRota_SelectedIndexChanged_1;
+            // 
+            // btnRetornar
+            // 
+            btnRetornar.AutoSize = false;
+            btnRetornar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnRetornar.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnRetornar.Depth = 0;
+            btnRetornar.HighEmphasis = true;
+            btnRetornar.Icon = null;
+            btnRetornar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnRetornar.Location = new Point(456, 7);
+            btnRetornar.Margin = new Padding(4, 6, 4, 6);
+            btnRetornar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnRetornar.Name = "btnRetornar";
+            btnRetornar.NoAccentTextColor = Color.Empty;
+            btnRetornar.Size = new Size(130, 43);
+            btnRetornar.TabIndex = 21;
+            btnRetornar.Text = "Retornar";
+            btnRetornar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnRetornar.UseAccentColor = false;
+            btnRetornar.UseVisualStyleBackColor = true;
+            btnRetornar.Click += btnRetornar_Click_1;
+            // 
+            // btnRota
+            // 
+            btnRota.AutoSize = false;
+            btnRota.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnRota.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnRota.Depth = 0;
+            btnRota.HighEmphasis = true;
+            btnRota.Icon = null;
+            btnRota.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnRota.Location = new Point(430, 308);
+            btnRota.Margin = new Padding(4, 6, 4, 6);
+            btnRota.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnRota.Name = "btnRota";
+            btnRota.NoAccentTextColor = Color.Empty;
+            btnRota.Size = new Size(130, 27);
+            btnRota.TabIndex = 17;
+            btnRota.Text = "Verificar Rota";
+            btnRota.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnRota.UseAccentColor = false;
+            btnRota.UseVisualStyleBackColor = true;
+            btnRota.Click += btnRota_Click;
+            // 
             // CadastroViagem
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(843, 385);
+            ClientSize = new Size(1080, 720);
             Name = "CadastroViagem";
             Text = "Cadastro de Viagem";
+            WindowState = FormWindowState.Maximized;
             tabControlCadastro.ResumeLayout(false);
             tabPageCadastro.ResumeLayout(false);
             tabPageCadastro.PerformLayout();
-            tabPageConsulta.ResumeLayout(false);
+            tabPageRota.ResumeLayout(false);
+            splitContainer.Panel1.ResumeLayout(false);
+            splitContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer).EndInit();
+            splitContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)webRota).EndInit();
             ResumeLayout(false);
         }
 
@@ -322,5 +490,12 @@
         private ReaLTaiizor.Controls.BigLabel lblChegada;
         private ReaLTaiizor.Controls.MaterialMaskedTextBox txtHoraChegada;
         private ReaLTaiizor.Controls.MaterialMaskedTextBox txtHoraSaida;
+        private TabPage tabPageRota;
+        private ReaLTaiizor.Controls.MaterialButton btnRota;
+        private SplitContainer splitContainer;
+        private Microsoft.Web.WebView2.WinForms.WebView2 webRota;
+        private ReaLTaiizor.Controls.MaterialComboBox cboOrigemRota;
+        private ReaLTaiizor.Controls.MaterialComboBox cboDestinoRota;
+        private ReaLTaiizor.Controls.MaterialButton btnRetornar;
     }
 }

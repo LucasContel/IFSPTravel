@@ -3,10 +3,8 @@ using IFSPStore.app.Models;
 using IFSPStore.Domain.Base;
 using IFSPStore.Domain.Entities;
 using IFSPStore.Service.Validators;
-using System.Globalization;
-
-//using System.Globalization;
-using System.Windows.Forms;
+using Microsoft.Web.WebView2.WinForms;
+using ReaLTaiizor.Controls;
 
 namespace IFSPStore.app
 {
@@ -31,16 +29,56 @@ namespace IFSPStore.app
             CarregarData();
 
             CarregarCombo();
+        }
+
+        private async void CarregaSite()
+        {
+            if (cboOrigemRota.SelectedValue != null && cboDestinoRota.SelectedValue != null)
+            {
+                if (int.TryParse(cboOrigemRota.SelectedValue.ToString(), out var idOrigem))
+                {
+                    var origem = _cidadeService.GetById<Cidade>(idOrigem);
+
+                    if (int.TryParse(cboDestinoRota.SelectedValue.ToString(), out var idDestino))
+                    {
+                        var destino = _cidadeService.GetById<Cidade>(idDestino);
+
+                        await webRota.EnsureCoreWebView2Async(null);
+                        string origemRota = $"{origem.Nome}, {origem.Estado}";
+                        string destinoRota = $"{destino.Nome}, {destino.Estado}";
+                        string url = $"https://www.google.com/maps/dir/?api=1&origin={origemRota}&destination={destinoRota}&travelmode=transit";
+                        webRota.Source = new Uri(url);
+                    }
+                }
 
 
+
+
+            }
+            else
+            {
+                MessageBox.Show("Por favor, insira Cidades antes de Viagens!", "IFSPTravel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void CarregaHora()
+        {
+            if (txtHoraSaida.Text.Contains(' ')) 
+            {
+                txtHoraSaida.Text = $"{DateTime.Now.Hour:D2}:{DateTime.Now.Minute:D2}";
+            }
+            if (txtHoraChegada.Text.Contains(' '))
+            {
+                txtHoraChegada.Text = $"{DateTime.Now.Hour:D2}:{DateTime.Now.Minute:D2}";
+            }
         }
 
         private void CarregarData()
         {
-            txtHoraChegada.Text = $"{DateTime.Now.Hour.ToString()}:{DateTime.Now.Minute.ToString()}";
-            txtHoraSaida.Text = $"{DateTime.Now.Hour.ToString()}:{DateTime.Now.Minute.ToString()}";
+
             dataChegada.Value = DateTime.Now.Date;
             dataSaida.Value = DateTime.Now.Date;
+
         }
 
 
@@ -49,28 +87,84 @@ namespace IFSPStore.app
             cboOnibus.ValueMember = "Id";
             cboOnibus.DisplayMember = "ModeloPlaca";
             cboOnibus.DataSource = _onibusService?.Get<OnibusModel>().ToList();
-            /*
-            cboDestino.ValueMember = "Id";
-            cboDestino.DisplayMember = "NomeEstado";
-            cboDestino.DataSource = _cidadeService?.Get<CidadeModel>().ToList();
-            */
+
             cboOrigem.ValueMember = "Id";
             cboOrigem.DisplayMember = "NomeEstado";
             cboOrigem.DataSource = _cidadeService?.Get<CidadeModel>().ToList();
+
             TrocaDestino();
+
+            cboOrigemRota.ValueMember = "Id";
+            cboOrigemRota.DisplayMember = "NomeEstado";
+            cboOrigemRota.DataSource = _cidadeService?.Get<CidadeModel>().ToList();
+
+            TrocaDestinoRota();
         }
 
 
         private void TrocaDestino()
         {
-            if (int.TryParse(cboOrigem.SelectedValue.ToString(), out var idOrigem))
-            {
-                cboDestino.DataSource = _cidadeService?.Get<CidadeModel>().ToList()
-                .Where(c => c.Id != idOrigem)
-                .ToList();
 
-                cboDestino.DisplayMember = "NomeEstado";
-                cboDestino.ValueMember = "Id";
+            if (cboOrigem.SelectedValue != null)
+            {
+
+                if (int.TryParse(cboOrigem.SelectedValue.ToString(), out var idOrigem))
+                {
+                    string cboValue = "";
+                    if(cboDestino.SelectedValue != null)
+                    {
+                        cboValue = cboDestino.SelectedValue.ToString();
+                    }
+                    cboDestino.DataSource = _cidadeService?.Get<CidadeModel>().ToList()
+                    .Where(c => c.Id != idOrigem)
+                    .ToList();
+
+                    cboDestino.DisplayMember = "NomeEstado";
+                    cboDestino.ValueMember = "Id";
+
+                    if(cboValue != "" && cboValue != cboOrigem.SelectedValue.ToString())
+                    {
+                        cboDestino.SelectedValue = int.Parse(cboValue);
+                    }
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Por favor, insira Cidades antes de Viagens!", "IFSPTravel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void TrocaDestinoRota()
+        {
+
+            if (cboOrigemRota.SelectedValue != null)
+            {
+
+                if (int.TryParse(cboOrigemRota.SelectedValue.ToString(), out var idOrigem))
+                {
+                    string cboValue = "";
+                    if (cboDestinoRota.SelectedValue != null)
+                    {
+                        cboValue = cboDestinoRota.SelectedValue.ToString();
+                    }
+
+                    cboDestinoRota.DataSource = _cidadeService?.Get<CidadeModel>().ToList()
+                    .Where(c => c.Id != idOrigem)
+                    .ToList();
+
+                    cboDestinoRota.DisplayMember = "NomeEstado";
+                    cboDestinoRota.ValueMember = "Id";
+
+                    if (cboValue != "" && cboValue != cboOrigemRota.SelectedValue.ToString())
+                    {
+                        cboDestinoRota.SelectedValue = int.Parse(cboValue);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, insira Cidades antes de Viagens!", "IFSPTravel", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -164,6 +258,7 @@ namespace IFSPStore.app
             dataGridViewConsulta.Columns["IdOrigem"]!.Visible = false;
             dataGridViewConsulta.Columns["IdDestino"]!.Visible = false;
             dataGridViewConsulta.Columns["IdOnibus"]!.Visible = false;
+            dataGridViewConsulta.Columns["Informacoes"]!.Visible = false;
         }
 
         protected override void CarregaRegistro(DataGridViewRow? linha)
@@ -181,6 +276,43 @@ namespace IFSPStore.app
         private void cboOrigem_SelectedIndexChanged(object sender, EventArgs e)
         {
             TrocaDestino();
+        }
+
+        private void tabPageRota_Enter(object sender, EventArgs e)
+        {
+            cboOrigemRota.SelectedValue = cboOrigem.SelectedValue;
+            TrocaDestinoRota();
+            cboDestinoRota.SelectedValue = cboDestino.SelectedValue;
+            CarregaSite();
+        }
+
+        private void btnRota_Click(object sender, EventArgs e)
+        {
+            tabControlCadastro.SelectedIndex = 2;
+        }
+
+        private void tabPageCadastro_Enter(object sender, EventArgs e)
+        {
+            CarregaHora();
+            cboOrigem.SelectedIndex = cboOrigemRota.SelectedIndex;
+            TrocaDestino();
+            cboDestino.SelectedIndex = cboDestinoRota.SelectedIndex;
+        }
+
+        private void cboOrigemRota_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            TrocaDestinoRota();
+            CarregaSite();
+        }
+
+        private void cboDestinoRota_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            CarregaSite();
+        }
+
+        private void btnRetornar_Click_1(object sender, EventArgs e)
+        {
+            tabControlCadastro.SelectedIndex = 0;
         }
     }
 }

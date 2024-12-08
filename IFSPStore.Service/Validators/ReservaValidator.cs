@@ -7,7 +7,8 @@ namespace IFSPStore.Service.Validators
     {
         public ReservaValidator()
         {
-
+            RuleFor(c => c.Assento)
+                .NotNull().WithMessage("Por favor selecione um assento válido!");
         }
     }
 }

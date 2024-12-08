@@ -62,45 +62,45 @@
             // cidadeToolStripMenuItem
             // 
             cidadeToolStripMenuItem.Name = "cidadeToolStripMenuItem";
-            cidadeToolStripMenuItem.Size = new Size(180, 22);
+            cidadeToolStripMenuItem.Size = new Size(130, 22);
             cidadeToolStripMenuItem.Text = "Passageiro";
             cidadeToolStripMenuItem.Click += cidadeToolStripMenuItem_Click;
             // 
             // reservaToolStripMenuItem
             // 
             reservaToolStripMenuItem.Name = "reservaToolStripMenuItem";
-            reservaToolStripMenuItem.Size = new Size(180, 22);
+            reservaToolStripMenuItem.Size = new Size(130, 22);
             reservaToolStripMenuItem.Text = "Reserva";
             reservaToolStripMenuItem.Click += reservaToolStripMenuItem_Click;
             // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(177, 6);
+            toolStripMenuItem1.Size = new Size(127, 6);
             // 
             // cidadeToolStripMenuItem1
             // 
             cidadeToolStripMenuItem1.Name = "cidadeToolStripMenuItem1";
-            cidadeToolStripMenuItem1.Size = new Size(180, 22);
+            cidadeToolStripMenuItem1.Size = new Size(130, 22);
             cidadeToolStripMenuItem1.Text = "Cidade";
             cidadeToolStripMenuItem1.Click += cidadeToolStripMenuItem1_Click;
             // 
             // toolStripMenuItem2
             // 
             toolStripMenuItem2.Name = "toolStripMenuItem2";
-            toolStripMenuItem2.Size = new Size(177, 6);
+            toolStripMenuItem2.Size = new Size(127, 6);
             // 
             // onibusToolStripMenuItem
             // 
             onibusToolStripMenuItem.Name = "onibusToolStripMenuItem";
-            onibusToolStripMenuItem.Size = new Size(180, 22);
+            onibusToolStripMenuItem.Size = new Size(130, 22);
             onibusToolStripMenuItem.Text = "Onibus";
             onibusToolStripMenuItem.Click += onibusToolStripMenuItem_Click;
             // 
             // viagemToolStripMenuItem
             // 
             viagemToolStripMenuItem.Name = "viagemToolStripMenuItem";
-            viagemToolStripMenuItem.Size = new Size(180, 22);
+            viagemToolStripMenuItem.Size = new Size(130, 22);
             viagemToolStripMenuItem.Text = "Viagem";
             viagemToolStripMenuItem.Click += viagemToolStripMenuItem_Click;
             // 
@@ -109,12 +109,14 @@
             rotasToolStripMenuItem.Name = "rotasToolStripMenuItem";
             rotasToolStripMenuItem.Size = new Size(48, 20);
             rotasToolStripMenuItem.Text = "Rotas";
+            rotasToolStripMenuItem.Click += rotasToolStripMenuItem_Click;
             // 
             // sairToolStripMenuItem
             // 
             sairToolStripMenuItem.Name = "sairToolStripMenuItem";
             sairToolStripMenuItem.Size = new Size(38, 20);
             sairToolStripMenuItem.Text = "Sair";
+            sairToolStripMenuItem.Click += sairToolStripMenuItem_Click;
             // 
             // FormMenuPrincipal
             // 
@@ -131,6 +133,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "IFSP Travel";
             WindowState = FormWindowState.Maximized;
+            FormClosing += FormMenuPrincipal_FormClosing;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
