@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroCidade));
             txtNome = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             cboEstado = new ReaLTaiizor.Controls.MaterialComboBox();
             tabControlCadastro.SuspendLayout();
             tabPageCadastro.SuspendLayout();
-            tabPageConsulta.SuspendLayout();
             SuspendLayout();
             // 
             // tabControlCadastro
@@ -62,11 +62,20 @@
             // btnCancelar
             // 
             btnCancelar.Location = new Point(487, 215);
+            btnCancelar.TabIndex = 3;
             // 
             // btnSalvar
             // 
             btnSalvar.Location = new Point(580, 215);
+            btnSalvar.TabIndex = 2;
             // 
+            // imageList1
+            // 
+            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
+            imageList1.Images.SetKeyName(0, "form.png");
+            imageList1.Images.SetKeyName(1, "search.png");
+            imageList1.Images.SetKeyName(2, "Seat - Icon.png");
+            imageList1.Images.SetKeyName(3, "Rota - Icon.png");
             // 
             // txtNome
             // 
@@ -94,7 +103,7 @@
             txtNome.SelectionStart = 0;
             txtNome.ShortcutsEnabled = true;
             txtNome.Size = new Size(368, 48);
-            txtNome.TabIndex = 2;
+            txtNome.TabIndex = 0;
             txtNome.TabStop = false;
             txtNome.TextAlign = HorizontalAlignment.Left;
             txtNome.TrailingIcon = null;
@@ -123,7 +132,7 @@
             cboEstado.Name = "cboEstado";
             cboEstado.Size = new Size(273, 49);
             cboEstado.StartIndex = 0;
-            cboEstado.TabIndex = 3;
+            cboEstado.TabIndex = 1;
             // 
             // CadastroCidade
             // 
@@ -136,7 +145,6 @@
             Text = "Cadastro de Cidade";
             tabControlCadastro.ResumeLayout(false);
             tabPageCadastro.ResumeLayout(false);
-            tabPageConsulta.ResumeLayout(false);
             ResumeLayout(false);
         }
 

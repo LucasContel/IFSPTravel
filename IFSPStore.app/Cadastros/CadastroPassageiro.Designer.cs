@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroPassageiro));
             txtNome = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtEmail = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtCpf = new ReaLTaiizor.Controls.MaterialMaskedTextBox();
             txtTelefone = new ReaLTaiizor.Controls.MaterialMaskedTextBox();
             tabControlCadastro.SuspendLayout();
             tabPageCadastro.SuspendLayout();
-            tabPageConsulta.SuspendLayout();
             SuspendLayout();
             // 
             // tabControlCadastro
@@ -62,10 +62,20 @@
             // btnCancelar
             // 
             btnCancelar.Location = new Point(561, 224);
+            btnCancelar.TabIndex = 5;
             // 
             // btnSalvar
             // 
             btnSalvar.Location = new Point(681, 224);
+            btnSalvar.TabIndex = 4;
+            // 
+            // imageList1
+            // 
+            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
+            imageList1.Images.SetKeyName(0, "form.png");
+            imageList1.Images.SetKeyName(1, "search.png");
+            imageList1.Images.SetKeyName(2, "Seat - Icon.png");
+            imageList1.Images.SetKeyName(3, "Rota - Icon.png");
             // 
             // txtNome
             // 
@@ -92,7 +102,7 @@
             txtNome.SelectionStart = 0;
             txtNome.ShortcutsEnabled = true;
             txtNome.Size = new Size(395, 48);
-            txtNome.TabIndex = 2;
+            txtNome.TabIndex = 0;
             txtNome.TabStop = false;
             txtNome.TextAlign = HorizontalAlignment.Left;
             txtNome.TrailingIcon = null;
@@ -123,7 +133,7 @@
             txtEmail.SelectionStart = 0;
             txtEmail.ShortcutsEnabled = true;
             txtEmail.Size = new Size(449, 48);
-            txtEmail.TabIndex = 5;
+            txtEmail.TabIndex = 3;
             txtEmail.TabStop = false;
             txtEmail.TextAlign = HorizontalAlignment.Left;
             txtEmail.TrailingIcon = null;
@@ -163,7 +173,7 @@
             txtCpf.ShortcutsEnabled = true;
             txtCpf.Size = new Size(263, 48);
             txtCpf.SkipLiterals = true;
-            txtCpf.TabIndex = 6;
+            txtCpf.TabIndex = 2;
             txtCpf.TabStop = false;
             txtCpf.Text = "   .   .   -";
             txtCpf.TextAlign = HorizontalAlignment.Left;
@@ -206,7 +216,7 @@
             txtTelefone.ShortcutsEnabled = true;
             txtTelefone.Size = new Size(316, 48);
             txtTelefone.SkipLiterals = true;
-            txtTelefone.TabIndex = 7;
+            txtTelefone.TabIndex = 1;
             txtTelefone.TabStop = false;
             txtTelefone.Text = "(  )      -";
             txtTelefone.TextAlign = HorizontalAlignment.Left;
@@ -224,7 +234,6 @@
             Text = "Cadastro de Passageiro";
             tabControlCadastro.ResumeLayout(false);
             tabPageCadastro.ResumeLayout(false);
-            tabPageConsulta.ResumeLayout(false);
             ResumeLayout(false);
         }
 

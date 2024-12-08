@@ -95,13 +95,16 @@ namespace IFSPStore.app.Infra
 
 
                 config.CreateMap<Reserva, ReservaModel>()
-                .ForMember(c => c.ViagemDestino, c => c.MapFrom(x => $"{x.Viagem!.Destino.Nome}/{x.Viagem!.Destino.Estado}"))
-                .ForMember(c => c.ViagemOrigem, c => c.MapFrom(x => $"{x.Viagem!.Origem.Nome}/{x.Viagem!.Origem.Estado}"))
+                .ForMember(c => c.ViagemDestino, c => c.MapFrom(x => $"{x.Viagem!.Destino!.Nome}/{x.Viagem!.Destino.Estado}"))
+                .ForMember(c => c.ViagemOrigem, c => c.MapFrom(x => $"{x.Viagem!.Origem!.Nome}/{x.Viagem!.Origem.Estado}"))
                 .ForMember(c => c.IdViagem, c => c.MapFrom(x => x.Viagem!.Id))
-                .ForMember(c => c.NomeCpf, c => c.MapFrom(x => $"{x.Passageiro.Nome} / {x.Passageiro.Cpf}"))
+                .ForMember(c => c.NomeCpf, c => c.MapFrom(x => $"{x.Passageiro!.Nome} / {x.Passageiro.Cpf}"))
                 .ForMember(c => c.IdPassageiro, c => c.MapFrom(x => x.Passageiro!.Id))
-                                .ForMember(c => c.IdAssento, c => c.MapFrom(x => x.Assento!.Id))
-                .ForMember(c => c.NumeroAssento, c => c.MapFrom(x => x.Assento!.NumeroAssento));
+                .ForMember(c => c.IdAssento, c => c.MapFrom(x => x.Assento!.Id))
+                .ForMember(c => c.NumeroAssento, c => c.MapFrom(x => x.Assento!.NumeroAssento))
+                .ForMember(c => c.HoraSaida, c => c.MapFrom(x => $"{x.Viagem!.DataSaida:dd/MM/yy HH:mm}"))
+                .ForMember(c => c.HoraChegada, c => c.MapFrom(x => $"{x.Viagem!.DataChegada:dd/MM/yy HH:mm}"))
+                .ForMember(c => c.Onibus, c => c.MapFrom(x => $"{x.Viagem!.Onibus!.Modelo}/{x.Viagem!.Onibus!.Placa}"));
 
 
             }).CreateMapper());

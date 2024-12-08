@@ -68,15 +68,21 @@
             tabPageCadastro.Controls.SetChildIndex(btnSalvar, 0);
             tabPageCadastro.Controls.SetChildIndex(btnCancelar, 0);
             // 
+            // tabPageConsulta
+            // 
+            tabPageConsulta.Size = new Size(937, 392);
+            // 
             // btnCancelar
             // 
             btnCancelar.Location = new Point(388, 268);
+            btnCancelar.TabIndex = 3;
             btnCancelar.Click += btnCancelar_Click;
             // 
             // btnSalvar
             // 
             btnSalvar.Enabled = false;
             btnSalvar.Location = new Point(237, 268);
+            btnSalvar.TabIndex = 4;
             btnSalvar.Visible = false;
             // 
             // imageList1
@@ -116,7 +122,7 @@
             splitContainer1.Panel2.Controls.Add(btnCancelarAssento);
             splitContainer1.Panel2.Controls.Add(btnSalvarAssento);
             splitContainer1.Size = new Size(931, 386);
-            splitContainer1.SplitterDistance = 321;
+            splitContainer1.SplitterDistance = 320;
             splitContainer1.TabIndex = 0;
             // 
             // tblPnl
@@ -131,14 +137,14 @@
             tblPnl.Padding = new Padding(50, 25, 25, 25);
             tblPnl.RowCount = 1;
             tblPnl.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tblPnl.Size = new Size(931, 321);
+            tblPnl.Size = new Size(931, 320);
             tblPnl.TabIndex = 0;
             // 
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(3, 2);
+            pictureBox1.Location = new Point(3, 3);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(277, 59);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -156,13 +162,13 @@
             btnCancelarAssento.HighEmphasis = true;
             btnCancelarAssento.Icon = null;
             btnCancelarAssento.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnCancelarAssento.Location = new Point(655, 16);
+            btnCancelarAssento.Location = new Point(655, 17);
             btnCancelarAssento.Margin = new Padding(4, 6, 4, 6);
             btnCancelarAssento.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnCancelarAssento.Name = "btnCancelarAssento";
             btnCancelarAssento.NoAccentTextColor = Color.Empty;
             btnCancelarAssento.Size = new Size(94, 27);
-            btnCancelarAssento.TabIndex = 10;
+            btnCancelarAssento.TabIndex = 1;
             btnCancelarAssento.Text = "Cancelar";
             btnCancelarAssento.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btnCancelarAssento.UseAccentColor = false;
@@ -180,13 +186,13 @@
             btnSalvarAssento.HighEmphasis = true;
             btnSalvarAssento.Icon = null;
             btnSalvarAssento.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnSalvarAssento.Location = new Point(784, 16);
+            btnSalvarAssento.Location = new Point(784, 17);
             btnSalvarAssento.Margin = new Padding(4, 6, 4, 6);
             btnSalvarAssento.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnSalvarAssento.Name = "btnSalvarAssento";
             btnSalvarAssento.NoAccentTextColor = Color.Empty;
             btnSalvarAssento.Size = new Size(94, 27);
-            btnSalvarAssento.TabIndex = 9;
+            btnSalvarAssento.TabIndex = 0;
             btnSalvarAssento.Text = "Salvar";
             btnSalvarAssento.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btnSalvarAssento.UseAccentColor = false;
@@ -214,7 +220,7 @@
             cboViagem.Name = "cboViagem";
             cboViagem.Size = new Size(819, 49);
             cboViagem.StartIndex = 0;
-            cboViagem.TabIndex = 2;
+            cboViagem.TabIndex = 0;
             // 
             // cboPassageiro
             // 
@@ -237,7 +243,7 @@
             cboPassageiro.Name = "cboPassageiro";
             cboPassageiro.Size = new Size(819, 49);
             cboPassageiro.StartIndex = 0;
-            cboPassageiro.TabIndex = 4;
+            cboPassageiro.TabIndex = 1;
             // 
             // btnProximo
             // 
@@ -255,7 +261,7 @@
             btnProximo.Name = "btnProximo";
             btnProximo.NoAccentTextColor = Color.Empty;
             btnProximo.Size = new Size(94, 27);
-            btnProximo.TabIndex = 5;
+            btnProximo.TabIndex = 2;
             btnProximo.Text = "Próximo";
             btnProximo.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btnProximo.UseAccentColor = false;
@@ -268,7 +274,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(948, 493);
             Name = "CadastroReserva";
-            Text = "CadastroReserva";
+            Text = "Cadastro de Reserva";
             tabControlCadastro.ResumeLayout(false);
             tabPageCadastro.ResumeLayout(false);
             tabPageAssento.ResumeLayout(false);

@@ -97,10 +97,12 @@
             // btnCancelar
             // 
             btnCancelar.Location = new Point(688, 308);
+            btnCancelar.TabIndex = 9;
             // 
             // btnSalvar
             // 
             btnSalvar.Location = new Point(781, 308);
+            btnSalvar.TabIndex = 8;
             // 
             // imageList1
             // 
@@ -131,7 +133,7 @@
             cboOnibus.Name = "cboOnibus";
             cboOnibus.Size = new Size(560, 49);
             cboOnibus.StartIndex = 0;
-            cboOnibus.TabIndex = 3;
+            cboOnibus.TabIndex = 4;
             // 
             // cboDestino
             // 
@@ -154,7 +156,7 @@
             cboDestino.Name = "cboDestino";
             cboDestino.Size = new Size(332, 49);
             cboDestino.StartIndex = 0;
-            cboDestino.TabIndex = 4;
+            cboDestino.TabIndex = 6;
             // 
             // cboOrigem
             // 
@@ -192,7 +194,7 @@
             dataSaida.MinDate = new DateTime(2024, 1, 1, 0, 0, 0, 0);
             dataSaida.Name = "dataSaida";
             dataSaida.Size = new Size(216, 35);
-            dataSaida.TabIndex = 7;
+            dataSaida.TabIndex = 0;
             dataSaida.Value = new DateTime(2024, 12, 5, 0, 0, 0, 0);
             // 
             // lblSaida
@@ -204,7 +206,7 @@
             lblSaida.Location = new Point(134, 36);
             lblSaida.Name = "lblSaida";
             lblSaida.Size = new Size(111, 20);
-            lblSaida.TabIndex = 9;
+            lblSaida.TabIndex = 11;
             lblSaida.Text = "Data de Saída";
             // 
             // dataChegada
@@ -219,7 +221,7 @@
             dataChegada.MinDate = new DateTime(2024, 1, 1, 0, 0, 0, 0);
             dataChegada.Name = "dataChegada";
             dataChegada.Size = new Size(216, 35);
-            dataChegada.TabIndex = 10;
+            dataChegada.TabIndex = 2;
             dataChegada.Value = new DateTime(2024, 12, 5, 0, 0, 0, 0);
             // 
             // lblChegada
@@ -231,7 +233,7 @@
             lblChegada.Location = new Point(533, 36);
             lblChegada.Name = "lblChegada";
             lblChegada.Size = new Size(135, 20);
-            lblChegada.TabIndex = 14;
+            lblChegada.TabIndex = 10;
             lblChegada.Text = "Data de Chegada";
             // 
             // txtHoraSaida
@@ -268,7 +270,7 @@
             txtHoraSaida.ShortcutsEnabled = true;
             txtHoraSaida.Size = new Size(110, 48);
             txtHoraSaida.SkipLiterals = true;
-            txtHoraSaida.TabIndex = 15;
+            txtHoraSaida.TabIndex = 1;
             txtHoraSaida.TabStop = false;
             txtHoraSaida.Text = "  :";
             txtHoraSaida.TextAlign = HorizontalAlignment.Left;
@@ -311,7 +313,7 @@
             txtHoraChegada.ShortcutsEnabled = true;
             txtHoraChegada.Size = new Size(110, 48);
             txtHoraChegada.SkipLiterals = true;
-            txtHoraChegada.TabIndex = 16;
+            txtHoraChegada.TabIndex = 3;
             txtHoraChegada.TabStop = false;
             txtHoraChegada.Text = "  :";
             txtHoraChegada.TextAlign = HorizontalAlignment.Left;
@@ -380,13 +382,13 @@
             cboOrigemRota.Hint = "Origem";
             cboOrigemRota.IntegralHeight = false;
             cboOrigemRota.ItemHeight = 43;
-            cboOrigemRota.Location = new Point(72, 4);
+            cboOrigemRota.Location = new Point(3, 4);
             cboOrigemRota.MaxDropDownItems = 4;
             cboOrigemRota.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cboOrigemRota.Name = "cboOrigemRota";
             cboOrigemRota.Size = new Size(332, 49);
             cboOrigemRota.StartIndex = 0;
-            cboOrigemRota.TabIndex = 23;
+            cboOrigemRota.TabIndex = 0;
             cboOrigemRota.SelectedIndexChanged += cboOrigemRota_SelectedIndexChanged_1;
             // 
             // cboDestinoRota
@@ -404,13 +406,13 @@
             cboDestinoRota.Hint = "Destino";
             cboDestinoRota.IntegralHeight = false;
             cboDestinoRota.ItemHeight = 43;
-            cboDestinoRota.Location = new Point(645, 2);
+            cboDestinoRota.Location = new Point(526, 4);
             cboDestinoRota.MaxDropDownItems = 4;
             cboDestinoRota.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cboDestinoRota.Name = "cboDestinoRota";
             cboDestinoRota.Size = new Size(332, 49);
             cboDestinoRota.StartIndex = 0;
-            cboDestinoRota.TabIndex = 22;
+            cboDestinoRota.TabIndex = 1;
             cboDestinoRota.SelectedIndexChanged += cboDestinoRota_SelectedIndexChanged_1;
             // 
             // btnRetornar
@@ -422,13 +424,13 @@
             btnRetornar.HighEmphasis = true;
             btnRetornar.Icon = null;
             btnRetornar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnRetornar.Location = new Point(456, 7);
+            btnRetornar.Location = new Point(366, 7);
             btnRetornar.Margin = new Padding(4, 6, 4, 6);
             btnRetornar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnRetornar.Name = "btnRetornar";
             btnRetornar.NoAccentTextColor = Color.Empty;
             btnRetornar.Size = new Size(130, 43);
-            btnRetornar.TabIndex = 21;
+            btnRetornar.TabIndex = 2;
             btnRetornar.Text = "Retornar";
             btnRetornar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btnRetornar.UseAccentColor = false;
@@ -450,7 +452,7 @@
             btnRota.Name = "btnRota";
             btnRota.NoAccentTextColor = Color.Empty;
             btnRota.Size = new Size(130, 27);
-            btnRota.TabIndex = 17;
+            btnRota.TabIndex = 7;
             btnRota.Text = "Verificar Rota";
             btnRota.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btnRota.UseAccentColor = false;

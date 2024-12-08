@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroOnibus));
             txtPlaca = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             groupBox1 = new GroupBox();
             wifiNao = new RadioButton();
@@ -36,7 +37,6 @@
             txtModelo = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             tabControlCadastro.SuspendLayout();
             tabPageCadastro.SuspendLayout();
-            tabPageConsulta.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -65,10 +65,20 @@
             // btnCancelar
             // 
             btnCancelar.Location = new Point(532, 243);
+            btnCancelar.TabIndex = 5;
             // 
             // btnSalvar
             // 
             btnSalvar.Location = new Point(634, 243);
+            btnSalvar.TabIndex = 4;
+            // 
+            // imageList1
+            // 
+            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
+            imageList1.Images.SetKeyName(0, "form.png");
+            imageList1.Images.SetKeyName(1, "search.png");
+            imageList1.Images.SetKeyName(2, "Seat - Icon.png");
+            imageList1.Images.SetKeyName(3, "Rota - Icon.png");
             // 
             // txtPlaca
             // 
@@ -95,7 +105,7 @@
             txtPlaca.SelectionStart = 0;
             txtPlaca.ShortcutsEnabled = true;
             txtPlaca.Size = new Size(221, 48);
-            txtPlaca.TabIndex = 2;
+            txtPlaca.TabIndex = 0;
             txtPlaca.TabStop = false;
             txtPlaca.TextAlign = HorizontalAlignment.Left;
             txtPlaca.TrailingIcon = null;
@@ -110,7 +120,7 @@
             groupBox1.Location = new Point(16, 131);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(221, 74);
-            groupBox1.TabIndex = 4;
+            groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "Wifi";
             // 
@@ -158,7 +168,7 @@
             cboAssentos.Name = "cboAssentos";
             cboAssentos.Size = new Size(453, 49);
             cboAssentos.StartIndex = 0;
-            cboAssentos.TabIndex = 8;
+            cboAssentos.TabIndex = 3;
             // 
             // txtModelo
             // 
@@ -185,7 +195,7 @@
             txtModelo.SelectionStart = 0;
             txtModelo.ShortcutsEnabled = true;
             txtModelo.Size = new Size(453, 48);
-            txtModelo.TabIndex = 9;
+            txtModelo.TabIndex = 1;
             txtModelo.TabStop = false;
             txtModelo.TextAlign = HorizontalAlignment.Left;
             txtModelo.TrailingIcon = null;
@@ -200,7 +210,6 @@
             Text = "Cadastro de Ônibus";
             tabControlCadastro.ResumeLayout(false);
             tabPageCadastro.ResumeLayout(false);
-            tabPageConsulta.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);

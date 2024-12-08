@@ -10,5 +10,9 @@
         public string? NomeCpf { get; set; }
         public int IdAssento { get; set; }
         public int NumeroAssento{ get; set; }
+
+        public string? HoraSaida { get; set; }
+        public string? HoraChegada { get; set; }
+        public string? Onibus { get; set; }
     }
 }

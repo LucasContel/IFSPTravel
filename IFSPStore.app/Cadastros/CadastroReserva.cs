@@ -273,7 +273,7 @@ namespace IFSPStore.app.Cadastros
             dataGridViewConsulta.Columns["IdPassageiro"]!.Visible = false;
             dataGridViewConsulta.Columns["IdViagem"]!.Visible = false;
             dataGridViewConsulta.Columns["IdAssento"]!.Visible = false;
-            dataGridViewConsulta.Columns["NomeCpf"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewConsulta.Columns["Onibus"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         protected override void CarregaRegistro(DataGridViewRow? linha)

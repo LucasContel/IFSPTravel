@@ -63,7 +63,7 @@ namespace IFSPStore.app.Cadastros
                     onibus.Assentos.Add(assento);
                 }
 
-                int prioridade = (int)Math.Floor(int.Parse(cboAssentos.Text) * .1);
+                int prioridade = (int)Math.Ceiling(int.Parse(cboAssentos.Text) * .1);
                 for (int i = 0; i < onibus.Assentos.Count; i++)
                 {
                     if (i >= int.Parse(cboAssentos.Text) - prioridade)
@@ -80,7 +80,7 @@ namespace IFSPStore.app.Cadastros
             }
             else
             {
-                int prioridade = (int)Math.Floor(int.Parse(cboAssentos.Text) * .1);
+                int prioridade = (int)Math.Ceiling(int.Parse(cboAssentos.Text) * .1);
 
                 for (int i = 0; i < int.Parse(cboAssentos.Text); i++)
                 {
@@ -170,7 +170,9 @@ namespace IFSPStore.app.Cadastros
 
             dataGridViewConsulta.DataSource = onibuses;
             dataGridViewConsulta.Columns["Modelo"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            
+
+            dataGridViewConsulta.Columns["ModeloPlaca"]!.Visible = false;
+
         }
 
         protected override void CarregaRegistro(DataGridViewRow? linha)
