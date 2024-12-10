@@ -42,7 +42,9 @@
             // 
             // tabControlCadastro
             // 
-            tabControlCadastro.Size = new Size(797, 329);
+            tabControlCadastro.Location = new Point(0, 113);
+            tabControlCadastro.Margin = new Padding(3, 4, 3, 4);
+            tabControlCadastro.Size = new Size(911, 410);
             // 
             // tabPageCadastro
             // 
@@ -50,7 +52,9 @@
             tabPageCadastro.Controls.Add(cboAssentos);
             tabPageCadastro.Controls.Add(groupBox1);
             tabPageCadastro.Controls.Add(txtPlaca);
-            tabPageCadastro.Size = new Size(789, 294);
+            tabPageCadastro.Margin = new Padding(3, 4, 3, 4);
+            tabPageCadastro.Padding = new Padding(3, 4, 3, 4);
+            tabPageCadastro.Size = new Size(903, 375);
             tabPageCadastro.Controls.SetChildIndex(btnSalvar, 0);
             tabPageCadastro.Controls.SetChildIndex(btnCancelar, 0);
             tabPageCadastro.Controls.SetChildIndex(txtPlaca, 0);
@@ -60,16 +64,22 @@
             // 
             // tabPageConsulta
             // 
-            tabPageConsulta.Size = new Size(789, 294);
+            tabPageConsulta.Margin = new Padding(3, 4, 3, 4);
+            tabPageConsulta.Padding = new Padding(3, 4, 3, 4);
+            tabPageConsulta.Size = new Size(903, 454);
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(532, 243);
+            btnCancelar.Location = new Point(594, 324);
+            btnCancelar.Margin = new Padding(6, 7, 6, 7);
+            btnCancelar.Size = new Size(110, 48);
             btnCancelar.TabIndex = 5;
             // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(634, 243);
+            btnSalvar.Location = new Point(725, 324);
+            btnSalvar.Margin = new Padding(6, 7, 6, 7);
+            btnSalvar.Size = new Size(110, 48);
             btnSalvar.TabIndex = 4;
             // 
             // imageList1
@@ -92,7 +102,8 @@
             txtPlaca.HideSelection = true;
             txtPlaca.Hint = "Placa";
             txtPlaca.LeadingIcon = null;
-            txtPlaca.Location = new Point(16, 62);
+            txtPlaca.Location = new Point(18, 83);
+            txtPlaca.Margin = new Padding(3, 4, 3, 4);
             txtPlaca.MaxLength = 32767;
             txtPlaca.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtPlaca.Name = "txtPlaca";
@@ -104,7 +115,7 @@
             txtPlaca.SelectionLength = 0;
             txtPlaca.SelectionStart = 0;
             txtPlaca.ShortcutsEnabled = true;
-            txtPlaca.Size = new Size(221, 48);
+            txtPlaca.Size = new Size(253, 48);
             txtPlaca.TabIndex = 0;
             txtPlaca.TabStop = false;
             txtPlaca.TextAlign = HorizontalAlignment.Left;
@@ -117,9 +128,11 @@
             groupBox1.Controls.Add(wifiSim);
             groupBox1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox1.ForeColor = SystemColors.ControlDarkDark;
-            groupBox1.Location = new Point(16, 131);
+            groupBox1.Location = new Point(18, 175);
+            groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(221, 74);
+            groupBox1.Padding = new Padding(3, 4, 3, 4);
+            groupBox1.Size = new Size(253, 99);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "Wifi";
@@ -127,9 +140,10 @@
             // wifiNao
             // 
             wifiNao.AutoSize = true;
-            wifiNao.Location = new Point(128, 34);
+            wifiNao.Location = new Point(146, 45);
+            wifiNao.Margin = new Padding(3, 4, 3, 4);
             wifiNao.Name = "wifiNao";
-            wifiNao.Size = new Size(70, 34);
+            wifiNao.Size = new Size(88, 41);
             wifiNao.TabIndex = 1;
             wifiNao.Text = "Não";
             wifiNao.UseVisualStyleBackColor = true;
@@ -138,9 +152,10 @@
             // 
             wifiSim.AutoSize = true;
             wifiSim.Checked = true;
-            wifiSim.Location = new Point(30, 34);
+            wifiSim.Location = new Point(34, 45);
+            wifiSim.Margin = new Padding(3, 4, 3, 4);
             wifiSim.Name = "wifiSim";
-            wifiSim.Size = new Size(65, 34);
+            wifiSim.Size = new Size(82, 41);
             wifiSim.TabIndex = 0;
             wifiSim.TabStop = true;
             wifiSim.Text = "Sim";
@@ -162,11 +177,12 @@
             cboAssentos.IntegralHeight = false;
             cboAssentos.ItemHeight = 43;
             cboAssentos.Items.AddRange(new object[] { "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50" });
-            cboAssentos.Location = new Point(265, 149);
+            cboAssentos.Location = new Point(303, 199);
+            cboAssentos.Margin = new Padding(3, 4, 3, 4);
             cboAssentos.MaxDropDownItems = 4;
             cboAssentos.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cboAssentos.Name = "cboAssentos";
-            cboAssentos.Size = new Size(453, 49);
+            cboAssentos.Size = new Size(517, 49);
             cboAssentos.StartIndex = 0;
             cboAssentos.TabIndex = 3;
             // 
@@ -182,7 +198,8 @@
             txtModelo.HideSelection = true;
             txtModelo.Hint = "Modelo";
             txtModelo.LeadingIcon = null;
-            txtModelo.Location = new Point(265, 62);
+            txtModelo.Location = new Point(303, 83);
+            txtModelo.Margin = new Padding(3, 4, 3, 4);
             txtModelo.MaxLength = 32767;
             txtModelo.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtModelo.Name = "txtModelo";
@@ -194,7 +211,7 @@
             txtModelo.SelectionLength = 0;
             txtModelo.SelectionStart = 0;
             txtModelo.ShortcutsEnabled = true;
-            txtModelo.Size = new Size(453, 48);
+            txtModelo.Size = new Size(518, 48);
             txtModelo.TabIndex = 1;
             txtModelo.TabStop = false;
             txtModelo.TextAlign = HorizontalAlignment.Left;
@@ -203,10 +220,12 @@
             // 
             // CadastroOnibus
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 395);
+            ClientSize = new Size(914, 527);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "CadastroOnibus";
+            Padding = new Padding(0, 113, 3, 4);
             Text = "Cadastro de Ônibus";
             tabControlCadastro.ResumeLayout(false);
             tabPageCadastro.ResumeLayout(false);

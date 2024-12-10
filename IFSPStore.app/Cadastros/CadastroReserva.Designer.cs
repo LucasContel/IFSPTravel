@@ -51,7 +51,9 @@
             // tabControlCadastro
             // 
             tabControlCadastro.Controls.Add(tabPageAssento);
-            tabControlCadastro.Size = new Size(945, 427);
+            tabControlCadastro.Location = new Point(0, 113);
+            tabControlCadastro.Margin = new Padding(3, 4, 3, 4);
+            tabControlCadastro.Size = new Size(1080, 540);
             tabControlCadastro.Controls.SetChildIndex(tabPageAssento, 0);
             tabControlCadastro.Controls.SetChildIndex(tabPageConsulta, 0);
             tabControlCadastro.Controls.SetChildIndex(tabPageCadastro, 0);
@@ -61,7 +63,9 @@
             tabPageCadastro.Controls.Add(btnProximo);
             tabPageCadastro.Controls.Add(cboPassageiro);
             tabPageCadastro.Controls.Add(cboViagem);
-            tabPageCadastro.Size = new Size(937, 392);
+            tabPageCadastro.Margin = new Padding(3, 4, 3, 4);
+            tabPageCadastro.Padding = new Padding(3, 4, 3, 4);
+            tabPageCadastro.Size = new Size(1072, 505);
             tabPageCadastro.Controls.SetChildIndex(cboViagem, 0);
             tabPageCadastro.Controls.SetChildIndex(cboPassageiro, 0);
             tabPageCadastro.Controls.SetChildIndex(btnProximo, 0);
@@ -70,18 +74,23 @@
             // 
             // tabPageConsulta
             // 
-            tabPageConsulta.Size = new Size(937, 392);
+            tabPageConsulta.Margin = new Padding(3, 4, 3, 4);
+            tabPageConsulta.Padding = new Padding(3, 4, 3, 4);
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(388, 268);
+            btnCancelar.Location = new Point(443, 357);
+            btnCancelar.Margin = new Padding(6, 7, 6, 7);
+            btnCancelar.Size = new Size(110, 48);
             btnCancelar.TabIndex = 3;
             btnCancelar.Click += btnCancelar_Click;
             // 
             // btnSalvar
             // 
             btnSalvar.Enabled = false;
-            btnSalvar.Location = new Point(237, 268);
+            btnSalvar.Location = new Point(271, 357);
+            btnSalvar.Margin = new Padding(6, 7, 6, 7);
+            btnSalvar.Size = new Size(110, 48);
             btnSalvar.TabIndex = 4;
             btnSalvar.Visible = false;
             // 
@@ -97,9 +106,10 @@
             tabPageAssento.Controls.Add(splitContainer1);
             tabPageAssento.ImageKey = "Seat - Icon.png";
             tabPageAssento.Location = new Point(4, 31);
+            tabPageAssento.Margin = new Padding(3, 4, 3, 4);
             tabPageAssento.Name = "tabPageAssento";
-            tabPageAssento.Padding = new Padding(3);
-            tabPageAssento.Size = new Size(937, 392);
+            tabPageAssento.Padding = new Padding(3, 4, 3, 4);
+            tabPageAssento.Size = new Size(1072, 505);
             tabPageAssento.TabIndex = 2;
             tabPageAssento.Text = "Assento";
             tabPageAssento.UseVisualStyleBackColor = true;
@@ -108,7 +118,8 @@
             // splitContainer1
             // 
             splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(3, 3);
+            splitContainer1.Location = new Point(3, 4);
+            splitContainer1.Margin = new Padding(3, 4, 3, 4);
             splitContainer1.Name = "splitContainer1";
             splitContainer1.Orientation = Orientation.Horizontal;
             // 
@@ -121,8 +132,9 @@
             splitContainer1.Panel2.Controls.Add(pictureBox1);
             splitContainer1.Panel2.Controls.Add(btnCancelarAssento);
             splitContainer1.Panel2.Controls.Add(btnSalvarAssento);
-            splitContainer1.Size = new Size(931, 386);
-            splitContainer1.SplitterDistance = 320;
+            splitContainer1.Size = new Size(1066, 497);
+            splitContainer1.SplitterDistance = 378;
+            splitContainer1.SplitterWidth = 5;
             splitContainer1.TabIndex = 0;
             // 
             // tblPnl
@@ -133,20 +145,22 @@
             tblPnl.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tblPnl.Dock = DockStyle.Fill;
             tblPnl.Location = new Point(0, 0);
+            tblPnl.Margin = new Padding(3, 4, 3, 4);
             tblPnl.Name = "tblPnl";
-            tblPnl.Padding = new Padding(50, 25, 25, 25);
+            tblPnl.Padding = new Padding(57, 33, 29, 33);
             tblPnl.RowCount = 1;
             tblPnl.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tblPnl.Size = new Size(931, 320);
+            tblPnl.Size = new Size(1066, 378);
             tblPnl.TabIndex = 0;
             // 
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(3, 3);
+            pictureBox1.Location = new Point(3, 30);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(277, 59);
+            pictureBox1.Size = new Size(317, 79);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 11;
             pictureBox1.TabStop = false;
@@ -162,12 +176,12 @@
             btnCancelarAssento.HighEmphasis = true;
             btnCancelarAssento.Icon = null;
             btnCancelarAssento.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnCancelarAssento.Location = new Point(655, 17);
-            btnCancelarAssento.Margin = new Padding(4, 6, 4, 6);
+            btnCancelarAssento.Location = new Point(750, 53);
+            btnCancelarAssento.Margin = new Padding(5, 8, 5, 8);
             btnCancelarAssento.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnCancelarAssento.Name = "btnCancelarAssento";
             btnCancelarAssento.NoAccentTextColor = Color.Empty;
-            btnCancelarAssento.Size = new Size(94, 27);
+            btnCancelarAssento.Size = new Size(107, 36);
             btnCancelarAssento.TabIndex = 1;
             btnCancelarAssento.Text = "Cancelar";
             btnCancelarAssento.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -186,12 +200,12 @@
             btnSalvarAssento.HighEmphasis = true;
             btnSalvarAssento.Icon = null;
             btnSalvarAssento.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnSalvarAssento.Location = new Point(784, 17);
-            btnSalvarAssento.Margin = new Padding(4, 6, 4, 6);
+            btnSalvarAssento.Location = new Point(898, 53);
+            btnSalvarAssento.Margin = new Padding(5, 8, 5, 8);
             btnSalvarAssento.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnSalvarAssento.Name = "btnSalvarAssento";
             btnSalvarAssento.NoAccentTextColor = Color.Empty;
-            btnSalvarAssento.Size = new Size(94, 27);
+            btnSalvarAssento.Size = new Size(107, 36);
             btnSalvarAssento.TabIndex = 0;
             btnSalvarAssento.Text = "Salvar";
             btnSalvarAssento.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -214,11 +228,12 @@
             cboViagem.Hint = "Viagem";
             cboViagem.IntegralHeight = false;
             cboViagem.ItemHeight = 43;
-            cboViagem.Location = new Point(39, 69);
+            cboViagem.Location = new Point(45, 92);
+            cboViagem.Margin = new Padding(3, 4, 3, 4);
             cboViagem.MaxDropDownItems = 4;
             cboViagem.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cboViagem.Name = "cboViagem";
-            cboViagem.Size = new Size(819, 49);
+            cboViagem.Size = new Size(935, 49);
             cboViagem.StartIndex = 0;
             cboViagem.TabIndex = 0;
             // 
@@ -237,11 +252,12 @@
             cboPassageiro.Hint = "Passageiro";
             cboPassageiro.IntegralHeight = false;
             cboPassageiro.ItemHeight = 43;
-            cboPassageiro.Location = new Point(39, 159);
+            cboPassageiro.Location = new Point(45, 212);
+            cboPassageiro.Margin = new Padding(3, 4, 3, 4);
             cboPassageiro.MaxDropDownItems = 4;
             cboPassageiro.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cboPassageiro.Name = "cboPassageiro";
-            cboPassageiro.Size = new Size(819, 49);
+            cboPassageiro.Size = new Size(935, 49);
             cboPassageiro.StartIndex = 0;
             cboPassageiro.TabIndex = 1;
             // 
@@ -255,12 +271,12 @@
             btnProximo.HighEmphasis = true;
             btnProximo.Icon = null;
             btnProximo.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnProximo.Location = new Point(541, 268);
-            btnProximo.Margin = new Padding(4, 6, 4, 6);
+            btnProximo.Location = new Point(618, 357);
+            btnProximo.Margin = new Padding(5, 8, 5, 8);
             btnProximo.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnProximo.Name = "btnProximo";
             btnProximo.NoAccentTextColor = Color.Empty;
-            btnProximo.Size = new Size(94, 27);
+            btnProximo.Size = new Size(107, 36);
             btnProximo.TabIndex = 2;
             btnProximo.Text = "Próximo";
             btnProximo.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -270,10 +286,12 @@
             // 
             // CadastroReserva
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(948, 493);
+            ClientSize = new Size(1083, 657);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "CadastroReserva";
+            Padding = new Padding(0, 113, 3, 4);
             Text = "Cadastro de Reserva";
             tabControlCadastro.ResumeLayout(false);
             tabPageCadastro.ResumeLayout(false);

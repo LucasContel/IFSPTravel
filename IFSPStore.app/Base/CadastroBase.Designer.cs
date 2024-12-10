@@ -53,13 +53,12 @@
             tabControlCadastro.Depth = 0;
             tabControlCadastro.Dock = DockStyle.Fill;
             tabControlCadastro.ImageList = imageList1;
-            tabControlCadastro.Location = new Point(0, 64);
-            tabControlCadastro.Margin = new Padding(3, 2, 3, 2);
+            tabControlCadastro.Location = new Point(0, 85);
             tabControlCadastro.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             tabControlCadastro.Multiline = true;
             tabControlCadastro.Name = "tabControlCadastro";
             tabControlCadastro.SelectedIndex = 0;
-            tabControlCadastro.Size = new Size(697, 275);
+            tabControlCadastro.Size = new Size(797, 367);
             tabControlCadastro.TabIndex = 0;
             // 
             // tabPageCadastro
@@ -70,10 +69,9 @@
             tabPageCadastro.Controls.Add(btnSalvar);
             tabPageCadastro.ImageKey = "form.png";
             tabPageCadastro.Location = new Point(4, 31);
-            tabPageCadastro.Margin = new Padding(3, 2, 3, 2);
             tabPageCadastro.Name = "tabPageCadastro";
-            tabPageCadastro.Padding = new Padding(3, 2, 3, 2);
-            tabPageCadastro.Size = new Size(689, 240);
+            tabPageCadastro.Padding = new Padding(3);
+            tabPageCadastro.Size = new Size(789, 332);
             tabPageCadastro.TabIndex = 0;
             tabPageCadastro.Text = "Cadastro";
             // 
@@ -86,12 +84,12 @@
             btnCancelar.HighEmphasis = true;
             btnCancelar.Icon = null;
             btnCancelar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnCancelar.Location = new Point(485, 203);
-            btnCancelar.Margin = new Padding(4);
+            btnCancelar.Location = new Point(534, 271);
+            btnCancelar.Margin = new Padding(5);
             btnCancelar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnCancelar.Name = "btnCancelar";
             btnCancelar.NoAccentTextColor = Color.Empty;
-            btnCancelar.Size = new Size(84, 27);
+            btnCancelar.Size = new Size(96, 36);
             btnCancelar.TabIndex = 1;
             btnCancelar.Text = "Cancelar";
             btnCancelar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -108,12 +106,12 @@
             btnSalvar.HighEmphasis = true;
             btnSalvar.Icon = null;
             btnSalvar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnSalvar.Location = new Point(578, 203);
-            btnSalvar.Margin = new Padding(4);
+            btnSalvar.Location = new Point(661, 271);
+            btnSalvar.Margin = new Padding(5);
             btnSalvar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnSalvar.Name = "btnSalvar";
             btnSalvar.NoAccentTextColor = Color.Empty;
-            btnSalvar.Size = new Size(84, 27);
+            btnSalvar.Size = new Size(96, 36);
             btnSalvar.TabIndex = 0;
             btnSalvar.Text = "Salvar";
             btnSalvar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -129,10 +127,9 @@
             tabPageConsulta.Controls.Add(btnNovo);
             tabPageConsulta.ImageKey = "search.png";
             tabPageConsulta.Location = new Point(4, 31);
-            tabPageConsulta.Margin = new Padding(3, 2, 3, 2);
             tabPageConsulta.Name = "tabPageConsulta";
-            tabPageConsulta.Padding = new Padding(3, 2, 3, 2);
-            tabPageConsulta.Size = new Size(689, 240);
+            tabPageConsulta.Padding = new Padding(3);
+            tabPageConsulta.Size = new Size(789, 332);
             tabPageConsulta.TabIndex = 1;
             tabPageConsulta.Text = "Consulta";
             tabPageConsulta.UseVisualStyleBackColor = true;
@@ -145,13 +142,12 @@
             dataGridViewConsulta.AllowUserToOrderColumns = true;
             dataGridViewConsulta.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewConsulta.Dock = DockStyle.Top;
-            dataGridViewConsulta.Location = new Point(3, 2);
-            dataGridViewConsulta.Margin = new Padding(3, 2, 3, 2);
+            dataGridViewConsulta.Location = new Point(3, 3);
             dataGridViewConsulta.Name = "dataGridViewConsulta";
             dataGridViewConsulta.ReadOnly = true;
             dataGridViewConsulta.RowHeadersWidth = 51;
             dataGridViewConsulta.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewConsulta.Size = new Size(683, 199);
+            dataGridViewConsulta.Size = new Size(783, 265);
             dataGridViewConsulta.TabIndex = 3;
             dataGridViewConsulta.CellDoubleClick += dataGridViewConsulta_CellDoubleClick;
             // 
@@ -165,12 +161,12 @@
             btnExcluir.HighEmphasis = true;
             btnExcluir.Icon = null;
             btnExcluir.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnExcluir.Location = new Point(588, 207);
-            btnExcluir.Margin = new Padding(4);
+            btnExcluir.Location = new Point(677, 291);
+            btnExcluir.Margin = new Padding(5);
             btnExcluir.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnExcluir.Name = "btnExcluir";
             btnExcluir.NoAccentTextColor = Color.Empty;
-            btnExcluir.Size = new Size(91, 27);
+            btnExcluir.Size = new Size(104, 36);
             btnExcluir.TabIndex = 2;
             btnExcluir.Text = "Excluir";
             btnExcluir.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -188,12 +184,12 @@
             btnEditar.HighEmphasis = true;
             btnEditar.Icon = null;
             btnEditar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnEditar.Location = new Point(490, 207);
-            btnEditar.Margin = new Padding(4);
+            btnEditar.Location = new Point(565, 291);
+            btnEditar.Margin = new Padding(5);
             btnEditar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnEditar.Name = "btnEditar";
             btnEditar.NoAccentTextColor = Color.Empty;
-            btnEditar.Size = new Size(91, 27);
+            btnEditar.Size = new Size(104, 36);
             btnEditar.TabIndex = 1;
             btnEditar.Text = "Editar";
             btnEditar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -211,12 +207,12 @@
             btnNovo.HighEmphasis = true;
             btnNovo.Icon = null;
             btnNovo.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnNovo.Location = new Point(392, 207);
-            btnNovo.Margin = new Padding(4);
+            btnNovo.Location = new Point(453, 291);
+            btnNovo.Margin = new Padding(5);
             btnNovo.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnNovo.Name = "btnNovo";
             btnNovo.NoAccentTextColor = Color.Empty;
-            btnNovo.Size = new Size(91, 27);
+            btnNovo.Size = new Size(104, 36);
             btnNovo.TabIndex = 0;
             btnNovo.Text = "Novo";
             btnNovo.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -236,15 +232,14 @@
             // 
             // CadastroBase
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(700, 341);
+            ClientSize = new Size(800, 455);
             Controls.Add(tabControlCadastro);
             DrawerShowIconsWhenHidden = true;
             DrawerTabControl = tabControlCadastro;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "CadastroBase";
-            Padding = new Padding(0, 64, 3, 2);
+            Padding = new Padding(0, 85, 3, 3);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CadastroBase";
             tabControlCadastro.ResumeLayout(false);

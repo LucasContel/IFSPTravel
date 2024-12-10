@@ -49,7 +49,8 @@
             // splitContainer1
             // 
             splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(3, 64);
+            splitContainer1.Location = new Point(3, 85);
+            splitContainer1.Margin = new Padding(3, 4, 3, 4);
             splitContainer1.Name = "splitContainer1";
             splitContainer1.Orientation = Orientation.Horizontal;
             // 
@@ -68,8 +69,9 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(webRota);
-            splitContainer1.Size = new Size(1074, 653);
-            splitContainer1.SplitterDistance = 119;
+            splitContainer1.Size = new Size(1074, 631);
+            splitContainer1.SplitterDistance = 154;
+            splitContainer1.SplitterWidth = 5;
             splitContainer1.TabIndex = 3;
             // 
             // materialButton1
@@ -81,12 +83,12 @@
             materialButton1.HighEmphasis = true;
             materialButton1.Icon = null;
             materialButton1.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            materialButton1.Location = new Point(712, 8);
-            materialButton1.Margin = new Padding(4, 6, 4, 6);
+            materialButton1.Location = new Point(911, 11);
+            materialButton1.Margin = new Padding(5, 8, 5, 8);
             materialButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialButton1.Name = "materialButton1";
             materialButton1.NoAccentTextColor = Color.Empty;
-            materialButton1.Size = new Size(143, 47);
+            materialButton1.Size = new Size(163, 63);
             materialButton1.TabIndex = 23;
             materialButton1.Text = "Filtrar Viagens";
             materialButton1.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -109,7 +111,8 @@
             txtHoraChegada.Hint = "Hora Chegada";
             txtHoraChegada.InsertKeyMode = InsertKeyMode.Default;
             txtHoraChegada.LeadingIcon = null;
-            txtHoraChegada.Location = new Point(597, 8);
+            txtHoraChegada.Location = new Point(731, 11);
+            txtHoraChegada.Margin = new Padding(3, 4, 3, 4);
             txtHoraChegada.Mask = "90:00";
             txtHoraChegada.MaxLength = 32767;
             txtHoraChegada.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -126,7 +129,7 @@
             txtHoraChegada.SelectionLength = 0;
             txtHoraChegada.SelectionStart = 0;
             txtHoraChegada.ShortcutsEnabled = true;
-            txtHoraChegada.Size = new Size(108, 48);
+            txtHoraChegada.Size = new Size(123, 48);
             txtHoraChegada.SkipLiterals = true;
             txtHoraChegada.TabIndex = 22;
             txtHoraChegada.TabStop = false;
@@ -152,7 +155,8 @@
             txtHoraSaida.Hint = "Hora Saída";
             txtHoraSaida.InsertKeyMode = InsertKeyMode.Default;
             txtHoraSaida.LeadingIcon = null;
-            txtHoraSaida.Location = new Point(346, 8);
+            txtHoraSaida.Location = new Point(395, 11);
+            txtHoraSaida.Margin = new Padding(3, 4, 3, 4);
             txtHoraSaida.Mask = "90:00";
             txtHoraSaida.MaxLength = 32767;
             txtHoraSaida.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -169,7 +173,7 @@
             txtHoraSaida.SelectionLength = 0;
             txtHoraSaida.SelectionStart = 0;
             txtHoraSaida.ShortcutsEnabled = true;
-            txtHoraSaida.Size = new Size(110, 48);
+            txtHoraSaida.Size = new Size(126, 48);
             txtHoraSaida.SkipLiterals = true;
             txtHoraSaida.TabIndex = 21;
             txtHoraSaida.TabStop = false;
@@ -187,11 +191,12 @@
             dataChegada.CustomFormat = "dd/MM/yyyy";
             dataChegada.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataChegada.Format = DateTimePickerFormat.Short;
-            dataChegada.Location = new Point(463, 21);
+            dataChegada.Location = new Point(539, 28);
+            dataChegada.Margin = new Padding(3, 4, 3, 4);
             dataChegada.MaxDate = new DateTime(2025, 12, 31, 0, 0, 0, 0);
             dataChegada.MinDate = new DateTime(2024, 1, 1, 0, 0, 0, 0);
             dataChegada.Name = "dataChegada";
-            dataChegada.Size = new Size(128, 35);
+            dataChegada.Size = new Size(186, 42);
             dataChegada.TabIndex = 19;
             dataChegada.Value = new DateTime(2024, 12, 5, 0, 0, 0, 0);
             // 
@@ -202,11 +207,12 @@
             dataSaida.CustomFormat = "dd/MM/yyyy";
             dataSaida.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataSaida.Format = DateTimePickerFormat.Short;
-            dataSaida.Location = new Point(205, 21);
+            dataSaida.Location = new Point(208, 28);
+            dataSaida.Margin = new Padding(3, 4, 3, 4);
             dataSaida.MaxDate = new DateTime(2025, 12, 31, 0, 0, 0, 0);
             dataSaida.MinDate = new DateTime(2024, 1, 1, 0, 0, 0, 0);
             dataSaida.Name = "dataSaida";
-            dataSaida.Size = new Size(135, 35);
+            dataSaida.Size = new Size(180, 42);
             dataSaida.TabIndex = 17;
             dataSaida.Value = new DateTime(2024, 12, 5, 0, 0, 0, 0);
             // 
@@ -216,7 +222,7 @@
             lblSaida.BackColor = Color.Transparent;
             lblSaida.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             lblSaida.ForeColor = Color.Gray;
-            lblSaida.Location = new Point(205, 2);
+            lblSaida.Location = new Point(234, 3);
             lblSaida.Name = "lblSaida";
             lblSaida.Size = new Size(89, 20);
             lblSaida.TabIndex = 18;
@@ -228,7 +234,7 @@
             lblChegada.BackColor = Color.Transparent;
             lblChegada.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             lblChegada.ForeColor = Color.Gray;
-            lblChegada.Location = new Point(463, 2);
+            lblChegada.Location = new Point(578, 3);
             lblChegada.Name = "lblChegada";
             lblChegada.Size = new Size(113, 20);
             lblChegada.TabIndex = 20;
@@ -243,12 +249,12 @@
             btnViagem.HighEmphasis = true;
             btnViagem.Icon = null;
             btnViagem.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnViagem.Location = new Point(820, 66);
-            btnViagem.Margin = new Padding(4, 6, 4, 6);
+            btnViagem.Location = new Point(937, 88);
+            btnViagem.Margin = new Padding(5, 8, 5, 8);
             btnViagem.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnViagem.Name = "btnViagem";
             btnViagem.NoAccentTextColor = Color.Empty;
-            btnViagem.Size = new Size(174, 47);
+            btnViagem.Size = new Size(199, 63);
             btnViagem.TabIndex = 1;
             btnViagem.Text = "Reservar Viagem";
             btnViagem.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -271,11 +277,12 @@
             cboViagem.Hint = "Viagens";
             cboViagem.IntegralHeight = false;
             cboViagem.ItemHeight = 43;
-            cboViagem.Location = new Point(18, 65);
+            cboViagem.Location = new Point(21, 88);
+            cboViagem.Margin = new Padding(3, 4, 3, 4);
             cboViagem.MaxDropDownItems = 4;
             cboViagem.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cboViagem.Name = "cboViagem";
-            cboViagem.Size = new Size(795, 49);
+            cboViagem.Size = new Size(908, 49);
             cboViagem.StartIndex = 0;
             cboViagem.TabIndex = 0;
             cboViagem.SelectedIndexChanged += cboViagem_SelectedIndexChanged;
@@ -287,18 +294,21 @@
             webRota.DefaultBackgroundColor = Color.White;
             webRota.Dock = DockStyle.Fill;
             webRota.Location = new Point(0, 0);
+            webRota.Margin = new Padding(3, 4, 3, 4);
             webRota.Name = "webRota";
-            webRota.Size = new Size(1074, 530);
+            webRota.Size = new Size(1074, 472);
             webRota.TabIndex = 0;
             webRota.ZoomFactor = 1D;
             // 
             // Rota
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1080, 720);
             Controls.Add(splitContainer1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Rota";
+            Padding = new Padding(3, 85, 3, 4);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Rotas";
             WindowState = FormWindowState.Maximized;
