@@ -47,7 +47,7 @@ namespace IFSPStore.app.Cadastros
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, @"IFSP Store", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, @"IFSP Travel", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -59,7 +59,7 @@ namespace IFSPStore.app.Cadastros
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, @"IFSP Store", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, @"IFSP Travel", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

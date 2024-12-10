@@ -57,7 +57,7 @@ namespace IFSPStore.app
             }
             else
             {
-                MessageBox.Show("Por favor, insira Cidades antes de Viagens!", "IFSPTravel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, insira Cidades antes de Viagens!", "IFSP Travel", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -129,10 +129,6 @@ namespace IFSPStore.app
                 }
 
             }
-            else
-            {
-                MessageBox.Show("Por favor, insira Cidades antes de Viagens!", "IFSPTravel", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void TrocaDestinoRota()
@@ -164,7 +160,7 @@ namespace IFSPStore.app
             }
             else
             {
-                MessageBox.Show("Por favor, insira Cidades antes de Viagens!", "IFSPTravel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, insira Cidades antes de Viagens!", "IFSP Travel", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -178,15 +174,11 @@ namespace IFSPStore.app
                 {
                     viagem.DataChegada = dataChegada.Value.Date.Add(horaChegada);
                 }
-                else
-                {
-                    MessageBox.Show("Por favor, insira uma hora de chegada válida!", "IFSPTravel", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
             else
             {
 
-                MessageBox.Show("Por favor, insira uma hora de saída válida!", "IFSPTravel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, insira uma hora de saída válida!", "IFSP Travel", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             if (int.TryParse(cboOnibus.SelectedValue.ToString(), out var idOnibus))

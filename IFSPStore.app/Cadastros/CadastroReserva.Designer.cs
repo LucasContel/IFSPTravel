@@ -157,7 +157,7 @@
             // 
             pictureBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(3, 30);
+            pictureBox1.Location = new Point(3, 29);
             pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(317, 79);
@@ -176,7 +176,7 @@
             btnCancelarAssento.HighEmphasis = true;
             btnCancelarAssento.Icon = null;
             btnCancelarAssento.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnCancelarAssento.Location = new Point(750, 53);
+            btnCancelarAssento.Location = new Point(750, 52);
             btnCancelarAssento.Margin = new Padding(5, 8, 5, 8);
             btnCancelarAssento.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnCancelarAssento.Name = "btnCancelarAssento";
@@ -200,7 +200,7 @@
             btnSalvarAssento.HighEmphasis = true;
             btnSalvarAssento.Icon = null;
             btnSalvarAssento.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnSalvarAssento.Location = new Point(898, 53);
+            btnSalvarAssento.Location = new Point(898, 52);
             btnSalvarAssento.Margin = new Padding(5, 8, 5, 8);
             btnSalvarAssento.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnSalvarAssento.Name = "btnSalvarAssento";
